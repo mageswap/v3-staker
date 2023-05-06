@@ -1,0 +1,4392 @@
+{
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "oldOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "DepositTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "contract IERC20Minimal",
+          "name": "rewardToken",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "contract IUniswapV3Pool",
+          "name": "pool",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "startTime",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "endTime",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "refundee",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "reward",
+          "type": "uint256"
+        }
+      ],
+      "name": "IncentiveCreated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "incentiveId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "refund",
+          "type": "uint256"
+        }
+      ],
+      "name": "IncentiveEnded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "reward",
+          "type": "uint256"
+        }
+      ],
+      "name": "RewardClaimed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "incentiveId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint128",
+          "name": "liquidity",
+          "type": "uint128"
+        }
+      ],
+      "name": "TokenStaked",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "incentiveId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "TokenUnstaked",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract IERC20Minimal",
+          "name": "rewardToken",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amountRequested",
+          "type": "uint256"
+        }
+      ],
+      "name": "claimReward",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "reward",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "contract IERC20Minimal",
+              "name": "rewardToken",
+              "type": "address"
+            },
+            {
+              "internalType": "contract IUniswapV3Pool",
+              "name": "pool",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "startTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "endTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "refundee",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct IUniswapV3Staker.IncentiveKey",
+          "name": "key",
+          "type": "tuple"
+        },
+        {
+          "internalType": "uint256",
+          "name": "reward",
+          "type": "uint256"
+        }
+      ],
+      "name": "createIncentive",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "deposits",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "internalType": "uint48",
+          "name": "numberOfStakes",
+          "type": "uint48"
+        },
+        {
+          "internalType": "int24",
+          "name": "tickLower",
+          "type": "int24"
+        },
+        {
+          "internalType": "int24",
+          "name": "tickUpper",
+          "type": "int24"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "contract IERC20Minimal",
+              "name": "rewardToken",
+              "type": "address"
+            },
+            {
+              "internalType": "contract IUniswapV3Pool",
+              "name": "pool",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "startTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "endTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "refundee",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct IUniswapV3Staker.IncentiveKey",
+          "name": "key",
+          "type": "tuple"
+        }
+      ],
+      "name": "endIncentive",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "refund",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "factory",
+      "outputs": [
+        {
+          "internalType": "contract IUniswapV3Factory",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "contract IERC20Minimal",
+              "name": "rewardToken",
+              "type": "address"
+            },
+            {
+              "internalType": "contract IUniswapV3Pool",
+              "name": "pool",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "startTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "endTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "refundee",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct IUniswapV3Staker.IncentiveKey",
+          "name": "key",
+          "type": "tuple"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getRewardInfo",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "reward",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint160",
+          "name": "secondsInsideX128",
+          "type": "uint160"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "incentiveId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "incentives",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "totalRewardUnclaimed",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint160",
+          "name": "totalSecondsClaimedX128",
+          "type": "uint160"
+        },
+        {
+          "internalType": "uint96",
+          "name": "numberOfStakes",
+          "type": "uint96"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "maxIncentiveDuration",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "maxIncentiveStartLeadTime",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes[]",
+          "name": "data",
+          "type": "bytes[]"
+        }
+      ],
+      "name": "multicall",
+      "outputs": [
+        {
+          "internalType": "bytes[]",
+          "name": "results",
+          "type": "bytes[]"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "nonfungiblePositionManager",
+      "outputs": [
+        {
+          "internalType": "contract INonfungiblePositionManager",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "operator",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "onERC721Received",
+      "outputs": [
+        {
+          "internalType": "bytes4",
+          "name": "",
+          "type": "bytes4"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract IERC20Minimal",
+          "name": "rewardToken",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "name": "rewards",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "rewardsOwed",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "contract IERC20Minimal",
+              "name": "rewardToken",
+              "type": "address"
+            },
+            {
+              "internalType": "contract IUniswapV3Pool",
+              "name": "pool",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "startTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "endTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "refundee",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct IUniswapV3Staker.IncentiveKey",
+          "name": "key",
+          "type": "tuple"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "stakeToken",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "incentiveId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "stakes",
+      "outputs": [
+        {
+          "internalType": "uint160",
+          "name": "secondsPerLiquidityInsideInitialX128",
+          "type": "uint160"
+        },
+        {
+          "internalType": "uint128",
+          "name": "liquidity",
+          "type": "uint128"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        }
+      ],
+      "name": "transferDeposit",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "contract IERC20Minimal",
+              "name": "rewardToken",
+              "type": "address"
+            },
+            {
+              "internalType": "contract IUniswapV3Pool",
+              "name": "pool",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "startTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "endTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "refundee",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct IUniswapV3Staker.IncentiveKey",
+          "name": "key",
+          "type": "tuple"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "unstakeToken",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "withdrawToken",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "claimReward(address,address,uint256)": "2f2d783d",
+    "createIncentive((address,address,uint256,uint256,address),uint256)": "5cc5e3d9",
+    "deposits(uint256)": "b02c43d0",
+    "endIncentive((address,address,uint256,uint256,address))": "b5ada6e4",
+    "factory()": "c45a0155",
+    "getRewardInfo((address,address,uint256,uint256,address),uint256)": "d953186e",
+    "incentives(bytes32)": "60777795",
+    "maxIncentiveDuration()": "3dc0714b",
+    "maxIncentiveStartLeadTime()": "01b75440",
+    "multicall(bytes[])": "ac9650d8",
+    "nonfungiblePositionManager()": "b44a2722",
+    "onERC721Received(address,address,uint256,bytes)": "150b7a02",
+    "rewards(address,address)": "e70b9e27",
+    "stakeToken((address,address,uint256,uint256,address),uint256)": "f2d2909b",
+    "stakes(uint256,bytes32)": "c36c1ea5",
+    "transferDeposit(uint256,address)": "26bfee04",
+    "unstakeToken((address,address,uint256,uint256,address),uint256)": "f549ab42",
+    "withdrawToken(uint256,address,bytes)": "3c423f0b"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"oldOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"DepositTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"contract IERC20Minimal\",\"name\":\"rewardToken\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"contract IUniswapV3Pool\",\"name\":\"pool\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startTime\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"endTime\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"refundee\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"reward\",\"type\":\"uint256\"}],\"name\":\"IncentiveCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"incentiveId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"refund\",\"type\":\"uint256\"}],\"name\":\"IncentiveEnded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"reward\",\"type\":\"uint256\"}],\"name\":\"RewardClaimed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"incentiveId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"liquidity\",\"type\":\"uint128\"}],\"name\":\"TokenStaked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"incentiveId\",\"type\":\"bytes32\"}],\"name\":\"TokenUnstaked\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"contract IERC20Minimal\",\"name\":\"rewardToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amountRequested\",\"type\":\"uint256\"}],\"name\":\"claimReward\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"reward\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"contract IERC20Minimal\",\"name\":\"rewardToken\",\"type\":\"address\"},{\"internalType\":\"contract IUniswapV3Pool\",\"name\":\"pool\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"startTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"endTime\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"refundee\",\"type\":\"address\"}],\"internalType\":\"struct IUniswapV3Staker.IncentiveKey\",\"name\":\"key\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"reward\",\"type\":\"uint256\"}],\"name\":\"createIncentive\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"deposits\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint48\",\"name\":\"numberOfStakes\",\"type\":\"uint48\"},{\"internalType\":\"int24\",\"name\":\"tickLower\",\"type\":\"int24\"},{\"internalType\":\"int24\",\"name\":\"tickUpper\",\"type\":\"int24\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"contract IERC20Minimal\",\"name\":\"rewardToken\",\"type\":\"address\"},{\"internalType\":\"contract IUniswapV3Pool\",\"name\":\"pool\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"startTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"endTime\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"refundee\",\"type\":\"address\"}],\"internalType\":\"struct IUniswapV3Staker.IncentiveKey\",\"name\":\"key\",\"type\":\"tuple\"}],\"name\":\"endIncentive\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"refund\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"factory\",\"outputs\":[{\"internalType\":\"contract IUniswapV3Factory\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"contract IERC20Minimal\",\"name\":\"rewardToken\",\"type\":\"address\"},{\"internalType\":\"contract IUniswapV3Pool\",\"name\":\"pool\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"startTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"endTime\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"refundee\",\"type\":\"address\"}],\"internalType\":\"struct IUniswapV3Staker.IncentiveKey\",\"name\":\"key\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getRewardInfo\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"reward\",\"type\":\"uint256\"},{\"internalType\":\"uint160\",\"name\":\"secondsInsideX128\",\"type\":\"uint160\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"incentiveId\",\"type\":\"bytes32\"}],\"name\":\"incentives\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"totalRewardUnclaimed\",\"type\":\"uint256\"},{\"internalType\":\"uint160\",\"name\":\"totalSecondsClaimedX128\",\"type\":\"uint160\"},{\"internalType\":\"uint96\",\"name\":\"numberOfStakes\",\"type\":\"uint96\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"maxIncentiveDuration\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"maxIncentiveStartLeadTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes[]\",\"name\":\"data\",\"type\":\"bytes[]\"}],\"name\":\"multicall\",\"outputs\":[{\"internalType\":\"bytes[]\",\"name\":\"results\",\"type\":\"bytes[]\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"nonfungiblePositionManager\",\"outputs\":[{\"internalType\":\"contract INonfungiblePositionManager\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"onERC721Received\",\"outputs\":[{\"internalType\":\"bytes4\",\"name\":\"\",\"type\":\"bytes4\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IERC20Minimal\",\"name\":\"rewardToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"rewards\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"rewardsOwed\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"contract IERC20Minimal\",\"name\":\"rewardToken\",\"type\":\"address\"},{\"internalType\":\"contract IUniswapV3Pool\",\"name\":\"pool\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"startTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"endTime\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"refundee\",\"type\":\"address\"}],\"internalType\":\"struct IUniswapV3Staker.IncentiveKey\",\"name\":\"key\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"stakeToken\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"incentiveId\",\"type\":\"bytes32\"}],\"name\":\"stakes\",\"outputs\":[{\"internalType\":\"uint160\",\"name\":\"secondsPerLiquidityInsideInitialX128\",\"type\":\"uint160\"},{\"internalType\":\"uint128\",\"name\":\"liquidity\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"}],\"name\":\"transferDeposit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"contract IERC20Minimal\",\"name\":\"rewardToken\",\"type\":\"address\"},{\"internalType\":\"contract IUniswapV3Pool\",\"name\":\"pool\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"startTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"endTime\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"refundee\",\"type\":\"address\"}],\"internalType\":\"struct IUniswapV3Staker.IncentiveKey\",\"name\":\"key\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"unstakeToken\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"withdrawToken\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"events\":{\"DepositTransferred(uint256,address,address)\":{\"params\":{\"newOwner\":\"The owner after the deposit was transferred\",\"oldOwner\":\"The owner before the deposit was transferred\",\"tokenId\":\"The ID of the deposit (and token) that is being transferred\"}},\"IncentiveCreated(address,address,uint256,uint256,address,uint256)\":{\"params\":{\"endTime\":\"The time when rewards stop accruing\",\"pool\":\"The Uniswap V3 pool\",\"refundee\":\"The address which receives any remaining reward tokens after the end time\",\"reward\":\"The amount of reward tokens to be distributed\",\"rewardToken\":\"The token being distributed as a reward\",\"startTime\":\"The time when the incentive program begins\"}},\"IncentiveEnded(bytes32,uint256)\":{\"params\":{\"incentiveId\":\"The incentive which is ending\",\"refund\":\"The amount of reward tokens refunded\"}},\"RewardClaimed(address,uint256)\":{\"params\":{\"reward\":\"The amount of reward tokens claimed\",\"to\":\"The address where claimed rewards were sent to\"}},\"TokenStaked(uint256,bytes32,uint128)\":{\"params\":{\"incentiveId\":\"The incentive in which the token is staking\",\"liquidity\":\"The amount of liquidity staked\",\"tokenId\":\"The unique identifier of an Uniswap V3 LP token\"}},\"TokenUnstaked(uint256,bytes32)\":{\"params\":{\"incentiveId\":\"The incentive in which the token is staking\",\"tokenId\":\"The unique identifier of an Uniswap V3 LP token\"}}},\"kind\":\"dev\",\"methods\":{\"claimReward(address,address,uint256)\":{\"params\":{\"amountRequested\":\"The amount of reward tokens to claim. Claims entire reward amount if set to 0.\",\"rewardToken\":\"The token being distributed as a reward\",\"to\":\"The address where claimed rewards will be sent to\"},\"returns\":{\"reward\":\"The amount of reward tokens claimed\"}},\"createIncentive((address,address,uint256,uint256,address),uint256)\":{\"params\":{\"key\":\"Details of the incentive to create\",\"reward\":\"The amount of reward tokens to be distributed\"}},\"deposits(uint256)\":{\"returns\":{\"numberOfStakes\":\"Counter of how many incentives for which the liquidity is staked\",\"owner\":\"The owner of the deposited NFT\",\"tickLower\":\"The lower tick of the range\",\"tickUpper\":\"The upper tick of the range\"}},\"endIncentive((address,address,uint256,uint256,address))\":{\"params\":{\"key\":\"Details of the incentive to end\"},\"returns\":{\"refund\":\"The remaining reward tokens when the incentive is ended\"}},\"getRewardInfo((address,address,uint256,uint256,address),uint256)\":{\"params\":{\"key\":\"The key of the incentive\",\"tokenId\":\"The ID of the token\"},\"returns\":{\"reward\":\"The reward accrued to the NFT for the given incentive thus far\"}},\"incentives(bytes32)\":{\"params\":{\"incentiveId\":\"The ID of the incentive computed from its parameters\"},\"returns\":{\"numberOfStakes\":\"The count of deposits that are currently staked for the incentive\",\"totalRewardUnclaimed\":\"The amount of reward token not yet claimed by users\",\"totalSecondsClaimedX128\":\"Total liquidity-seconds claimed, represented as a UQ32.128\"}},\"multicall(bytes[])\":{\"details\":\"The `msg.value` should not be trusted for any method callable from multicall.\",\"params\":{\"data\":\"The encoded function data for each of the calls to make to this contract\"},\"returns\":{\"results\":\"The results from each of the calls passed in via data\"}},\"onERC721Received(address,address,uint256,bytes)\":{\"details\":\"Whenever an {IERC721} `tokenId` token is transferred to this contract via {IERC721-safeTransferFrom} by `operator` from `from`, this function is called. It must return its Solidity selector to confirm the token transfer. If any other value is returned or the interface is not implemented by the recipient, the transfer will be reverted. The selector can be obtained in Solidity with `IERC721.onERC721Received.selector`.\"},\"rewards(address,address)\":{\"params\":{\"owner\":\"The owner for which the rewards owed are checked\",\"rewardToken\":\"The token for which to check rewards\"},\"returns\":{\"rewardsOwed\":\"The amount of the reward token claimable by the owner\"}},\"stakeToken((address,address,uint256,uint256,address),uint256)\":{\"params\":{\"key\":\"The key of the incentive for which to stake the NFT\",\"tokenId\":\"The ID of the token to stake\"}},\"stakes(uint256,bytes32)\":{\"params\":{\"incentiveId\":\"The ID of the incentive for which the token is staked\",\"tokenId\":\"The ID of the staked token\"},\"returns\":{\"liquidity\":\"The amount of liquidity in the NFT as of the last time the rewards were computed\",\"secondsPerLiquidityInsideInitialX128\":\"secondsPerLiquidity represented as a UQ32.128\"}},\"transferDeposit(uint256,address)\":{\"params\":{\"to\":\"The new owner of the deposit\",\"tokenId\":\"The ID of the token (and the deposit) to transfer\"}},\"unstakeToken((address,address,uint256,uint256,address),uint256)\":{\"params\":{\"key\":\"The key of the incentive for which to unstake the NFT\",\"tokenId\":\"The ID of the token to unstake\"}},\"withdrawToken(uint256,address,bytes)\":{\"params\":{\"data\":\"An optional data array that will be passed along to the `to` address via the NFT safeTransferFrom\",\"to\":\"The address where the LP token will be sent\",\"tokenId\":\"The unique identifier of an Uniswap V3 LP token\"}}},\"title\":\"Uniswap V3 Staker Interface\",\"version\":1},\"userdoc\":{\"events\":{\"DepositTransferred(uint256,address,address)\":{\"notice\":\"Emitted when ownership of a deposit changes\"},\"IncentiveCreated(address,address,uint256,uint256,address,uint256)\":{\"notice\":\"Event emitted when a liquidity mining incentive has been created\"},\"IncentiveEnded(bytes32,uint256)\":{\"notice\":\"Event that can be emitted when a liquidity mining incentive has ended\"},\"RewardClaimed(address,uint256)\":{\"notice\":\"Event emitted when a reward token has been claimed\"},\"TokenStaked(uint256,bytes32,uint128)\":{\"notice\":\"Event emitted when a Uniswap V3 LP token has been staked\"},\"TokenUnstaked(uint256,bytes32)\":{\"notice\":\"Event emitted when a Uniswap V3 LP token has been unstaked\"}},\"kind\":\"user\",\"methods\":{\"claimReward(address,address,uint256)\":{\"notice\":\"Transfers `amountRequested` of accrued `rewardToken` rewards from the contract to the recipient `to`\"},\"createIncentive((address,address,uint256,uint256,address),uint256)\":{\"notice\":\"Creates a new liquidity mining incentive program\"},\"deposits(uint256)\":{\"notice\":\"Returns information about a deposited NFT\"},\"endIncentive((address,address,uint256,uint256,address))\":{\"notice\":\"Ends an incentive after the incentive end time has passed and all stakes have been withdrawn\"},\"factory()\":{\"notice\":\"The Uniswap V3 Factory\"},\"getRewardInfo((address,address,uint256,uint256,address),uint256)\":{\"notice\":\"Calculates the reward amount that will be received for the given stake\"},\"incentives(bytes32)\":{\"notice\":\"Represents a staking incentive\"},\"maxIncentiveDuration()\":{\"notice\":\"The max duration of an incentive in seconds\"},\"maxIncentiveStartLeadTime()\":{\"notice\":\"The max amount of seconds into the future the incentive startTime can be set\"},\"multicall(bytes[])\":{\"notice\":\"Call multiple functions in the current contract and return the data from all of them if they all succeed\"},\"nonfungiblePositionManager()\":{\"notice\":\"The nonfungible position manager with which this staking contract is compatible\"},\"rewards(address,address)\":{\"notice\":\"Returns amounts of reward tokens owed to a given address according to the last time all stakes were updated\"},\"stakeToken((address,address,uint256,uint256,address),uint256)\":{\"notice\":\"Stakes a Uniswap V3 LP token\"},\"stakes(uint256,bytes32)\":{\"notice\":\"Returns information about a staked liquidity NFT\"},\"transferDeposit(uint256,address)\":{\"notice\":\"Transfers ownership of a deposit from the sender to the given recipient\"},\"unstakeToken((address,address,uint256,uint256,address),uint256)\":{\"notice\":\"Unstakes a Uniswap V3 LP token\"},\"withdrawToken(uint256,address,bytes)\":{\"notice\":\"Withdraws a Uniswap V3 LP token `tokenId` from this contract to the recipient `to`\"}},\"notice\":\"Allows staking nonfungible liquidity tokens in exchange for reward tokens\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/interfaces/IUniswapV3Staker.sol\":\"IUniswapV3Staker\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@ensdomains/=node_modules/@ensdomains/\",\":@mageswap/=node_modules/@mageswap/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":base64-sol/=node_modules/base64-sol/\",\":hardhat/=node_modules/hardhat/\"]},\"sources\":{\"contracts/interfaces/IUniswapV3Staker.sol\":{\"keccak256\":\"0x752dba376c111db88e5d35c1316b5da50d13d7975db9b4c1768a77e036d0d4e3\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://b14a761b42eeeb85c7a19d4bcd20b878a531e6c9164972cb5805a79c2a18003b\",\"dweb:/ipfs/QmRar17LgwuTdChvgQrPSunQsYH2uNYD2UURF8Q2iimDLV\"]},\"node_modules/@mageswap/v3-core/contracts/interfaces/IERC20Minimal.sol\":{\"keccak256\":\"0xbbb4fbd3cf2221bba3218d27871f61f2852ff296cbe81946b935481ff181f735\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://8ded0534518213ad286cbd3b7a120ec2070da0451f6d02e0bae6706b35f65fa3\",\"dweb:/ipfs/QmcUVLd6GuJJ1Aw895kHprUQpwZwbo2SqPoSif3BciMfNF\"]},\"node_modules/@mageswap/v3-core/contracts/interfaces/IUniswapV3Factory.sol\":{\"keccak256\":\"0xcc3d0c93fc9ac0febbe09f941b465b57f750bcf3b48432da0b97dc289cfdc489\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://b9379ad954680c44a0bc523b314ae4c4da735f9fe1d02aa56ea5bdba6f1136f2\",\"dweb:/ipfs/QmZXdgQNXKAckrXWz9R3mc47F1fvDvr28a2ewJrwNAw71B\"]},\"node_modules/@mageswap/v3-core/contracts/interfaces/IUniswapV3Pool.sol\":{\"keccak256\":\"0xfe6113d518466cd6652c85b111e01f33eb62157f49ae5ed7d5a3947a2044adb1\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://1c42b9e6f5902ac38dd43e25750939baa7e0c1425dc75afd717c4412731065d5\",\"dweb:/ipfs/QmWaoacnzsucTvBME2o7YgZBZMhaHv7fkj83htHMVWJKWh\"]},\"node_modules/@mageswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolActions.sol\":{\"keccak256\":\"0x9453dd0e7442188667d01d9b65de3f1e14e9511ff3e303179a15f6fc267f7634\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://982f4328f956c3e60e67501e759eb292ac487f76460c774c50e9ae4fcc92aae5\",\"dweb:/ipfs/QmRnzEDsaqtd9PJEVcgQi7p5aV5pMSvRUoGZJAdwFUJxgZ\"]},\"node_modules/@mageswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolDerivedState.sol\":{\"keccak256\":\"0xe603ac5b17ecdee73ba2b27efdf386c257a19c14206e87eee77e2017b742d9e5\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://8febc9bdb399a4d94bb89f5377732652e2400e4a8dee808201ade6848f9004e7\",\"dweb:/ipfs/QmaKDqYYFU4d2W2iN77aDHptfbFmYZRrMYXHeGpJmM8C1c\"]},\"node_modules/@mageswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolEvents.sol\":{\"keccak256\":\"0x8071514d0fe5d17d6fbd31c191cdfb703031c24e0ece3621d88ab10e871375cd\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://d0b571930cc7488b1d546a7e9cea7c52d8b3c4e207da657ed0e0db7343b8cd03\",\"dweb:/ipfs/QmaGK6vVwB95QSTR1XMYvrh7ivYAYZxi3fD7v6VMA4jZ39\"]},\"node_modules/@mageswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolImmutables.sol\":{\"keccak256\":\"0xf6e5d2cd1139c4c276bdbc8e1d2b256e456c866a91f1b868da265c6d2685c3f7\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://b99c8c9ae8e27ee6559e5866bea82cbc9ffc8247f8d15b7422a4deb287d4d047\",\"dweb:/ipfs/QmfL8gaqt3ffAnm6nVj5ksuNpLygXuL3xq5VBqrkwC2JJ3\"]},\"node_modules/@mageswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolOwnerActions.sol\":{\"keccak256\":\"0x759b78a2918af9e99e246dc3af084f654e48ef32bb4e4cb8a966aa3dcaece235\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://64144fb96e1c7fdba87305acadb98a198d26a3d46c097cb3a666e567f6f29735\",\"dweb:/ipfs/QmUnWVwN9FKB9uV5Pr8YfLpWZnYM2DENnRMaadZ492JS9u\"]},\"node_modules/@mageswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolState.sol\":{\"keccak256\":\"0x852dc1f5df7dcf7f11e7bb3eed79f0cea72ad4b25f6a9d2c35aafb48925fd49f\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://ed63907c38ff36b0e22bc9ffc53e791ea74f0d4f0e7c257fdfb5aaf8825b1f0f\",\"dweb:/ipfs/QmSQrckghEjs6HVsA5GVgpNpZWvTXMY5eQLF7cN6deFeEg\"]},\"node_modules/@mageswap/v3-periphery/contracts/interfaces/IERC721Permit.sol\":{\"keccak256\":\"0x9e3c2a4ee65ddf95b2dfcb0815784eea3a295707e6f8b83e4c4f0f8fe2e3a1d4\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://bfd939085b3618101b955f87c7fabf38338ba1aad480295acb8102ebc5d72471\",\"dweb:/ipfs/QmauQD8bGDHTztmTDfaKXjzM7Wacrq2XU7VcTbwn1WrDBL\"]},\"node_modules/@mageswap/v3-periphery/contracts/interfaces/IMulticall.sol\":{\"keccak256\":\"0xa8f9d0061ee730a522dc4bae6bd5cabb3e997e2c5983da183e912bdca93dfa7b\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://496b68d4f72d58cc83cf51bd9cc9c99aaa46dc3c3df7c951a9e50ba29ee33016\",\"dweb:/ipfs/Qmc3bkXwuRP8mDpcKgvLgbCKn8tD8PGCaBjnLHSPMJCRGD\"]},\"node_modules/@mageswap/v3-periphery/contracts/interfaces/INonfungiblePositionManager.sol\":{\"keccak256\":\"0xe1dadc73e60bf05d0b4e0f05bd2847c5783e833cc10352c14763360b13495ee1\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://6e3b10f75c101de044c1253672207399c1513fd1f0f17be31069c18c0b9a1460\",\"dweb:/ipfs/QmXrkXNY6njQfepE7KbRtJMruGXfrZwsMMsW7m5e3XS9Hf\"]},\"node_modules/@mageswap/v3-periphery/contracts/interfaces/IPeripheryImmutableState.sol\":{\"keccak256\":\"0x7affcfeb5127c0925a71d6a65345e117c33537523aeca7bc98085ead8452519d\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://e16b291294210e71cb0f20cd0afe62ae2dc6878d627f5ccc19c4dc9cd80aec3f\",\"dweb:/ipfs/QmQGitSyBr26nour81BZmpmDMyJpvZRqHQZvnCD1Acb127\"]},\"node_modules/@mageswap/v3-periphery/contracts/interfaces/IPeripheryPayments.sol\":{\"keccak256\":\"0xb547e10f1e69bed03621a62b73a503e260643066c6b4054867a4d1fef47eb274\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://f9a90f58f5fd5fb42f7811f4094113b532f307b14a73764c91f977590747f407\",\"dweb:/ipfs/QmSeNH2mfiDMKf3Q6V2sqtNxx1s72JNuA1VVxRM9HoMqYp\"]},\"node_modules/@mageswap/v3-periphery/contracts/interfaces/IPoolInitializer.sol\":{\"keccak256\":\"0x9d7695e8d94c22cc5fcced602017aabb988de89981ea7bee29ea629d5328a862\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://61b50933026ee1017db2a6273af8cedc3238c95dca58880db0918dbdbb2f064f\",\"dweb:/ipfs/QmUebR26pqG25d18aBELKz8aFFKkmHa8PxntzXTA7o9Ldu\"]},\"node_modules/@mageswap/v3-periphery/contracts/libraries/PoolAddress.sol\":{\"keccak256\":\"0x5edd84eb8ba7c12fd8cb6cffe52e1e9f3f6464514ee5f539c2283826209035a2\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://f375d0e6d5ea3674e1aa6f112b021e9a86721a6a2f3cb22d673378b30cf0e840\",\"dweb:/ipfs/QmWJir2qnJyp963mU6U3jEEx9i3H3V5BgKawAfSnG1pC8w\"]},\"node_modules/@openzeppelin/contracts/introspection/IERC165.sol\":{\"keccak256\":\"0xd2f30fad5b24c4120f96dbac83aacdb7993ee610a9092bc23c44463da292bf8d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://e3d4e72409e392c7694b6405a0136cf073d8da016df33ef8f9ad195f724ebfea\",\"dweb:/ipfs/QmPGcddKq6CgsiKnxUUif2q76wRqP3dmdQ6bKuHCLmb8Wa\"]},\"node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol\":{\"keccak256\":\"0xb11597841d47f7a773bca63ca323c76f804cb5d944788de0327db5526319dc82\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://930d2da1934886a1098753be4173dd89c45ca0b306a1930accd37e00b1af4aaf\",\"dweb:/ipfs/QmVSXnvEV41d43k8cfpANHoTYMKgBDBL8iCbxkLfEtQZBe\"]},\"node_modules/@openzeppelin/contracts/token/ERC721/IERC721Enumerable.sol\":{\"keccak256\":\"0x2789dfea2d73182683d637db5729201f6730dae6113030a94c828f8688f38f2f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://36374eaa68c0737bf7e1ae13d55327b4868fb0825e971ee729f4b8d355ededb4\",\"dweb:/ipfs/QmYN9yuzz4P5SumiT6rgYgTEY8MhnPQapMwx2LHxRKju7r\"]},\"node_modules/@openzeppelin/contracts/token/ERC721/IERC721Metadata.sol\":{\"keccak256\":\"0xc82c7d1d732081d9bd23f1555ebdf8f3bc1738bc42c2bfc4b9aa7564d9fa3573\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5cb07e4ff3352161510a0d1536fe93f3c62526358e073a8bab2a8abbb27d0da1\",\"dweb:/ipfs/QmX7K1JjnWKT1JzZT92Qx5zNJQYbssE533TLFHP88hj2fb\"]},\"node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol\":{\"keccak256\":\"0x05604ffcf69e416b8a42728bb0e4fd75170d8fac70bf1a284afeb4752a9bc52f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a8a7fd1043372336ecccdbcbcf4962c6df8958dc9c7c7f8361fc2b3dd23570cc\",\"dweb:/ipfs/QmYHKgZxnanBfu7Q8ZicVhDDuB7XRGxuwvmCjfQQ1E5j39\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.7.6+commit.7338295f"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256",
+              "indexed": true
+            },
+            {
+              "internalType": "address",
+              "name": "oldOwner",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address",
+              "indexed": true
+            }
+          ],
+          "type": "event",
+          "name": "DepositTransferred",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "contract IERC20Minimal",
+              "name": "rewardToken",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "contract IUniswapV3Pool",
+              "name": "pool",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint256",
+              "name": "startTime",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "endTime",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "address",
+              "name": "refundee",
+              "type": "address",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "reward",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "IncentiveCreated",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "incentiveId",
+              "type": "bytes32",
+              "indexed": true
+            },
+            {
+              "internalType": "uint256",
+              "name": "refund",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "IncentiveEnded",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint256",
+              "name": "reward",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "RewardClaimed",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256",
+              "indexed": true
+            },
+            {
+              "internalType": "bytes32",
+              "name": "incentiveId",
+              "type": "bytes32",
+              "indexed": true
+            },
+            {
+              "internalType": "uint128",
+              "name": "liquidity",
+              "type": "uint128",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "TokenStaked",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256",
+              "indexed": true
+            },
+            {
+              "internalType": "bytes32",
+              "name": "incentiveId",
+              "type": "bytes32",
+              "indexed": true
+            }
+          ],
+          "type": "event",
+          "name": "TokenUnstaked",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "contract IERC20Minimal",
+              "name": "rewardToken",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amountRequested",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "claimReward",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "reward",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "struct IUniswapV3Staker.IncentiveKey",
+              "name": "key",
+              "type": "tuple",
+              "components": [
+                {
+                  "internalType": "contract IERC20Minimal",
+                  "name": "rewardToken",
+                  "type": "address"
+                },
+                {
+                  "internalType": "contract IUniswapV3Pool",
+                  "name": "pool",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "startTime",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "endTime",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "address",
+                  "name": "refundee",
+                  "type": "address"
+                }
+              ]
+            },
+            {
+              "internalType": "uint256",
+              "name": "reward",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "createIncentive"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "deposits",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "uint48",
+              "name": "numberOfStakes",
+              "type": "uint48"
+            },
+            {
+              "internalType": "int24",
+              "name": "tickLower",
+              "type": "int24"
+            },
+            {
+              "internalType": "int24",
+              "name": "tickUpper",
+              "type": "int24"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "struct IUniswapV3Staker.IncentiveKey",
+              "name": "key",
+              "type": "tuple",
+              "components": [
+                {
+                  "internalType": "contract IERC20Minimal",
+                  "name": "rewardToken",
+                  "type": "address"
+                },
+                {
+                  "internalType": "contract IUniswapV3Pool",
+                  "name": "pool",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "startTime",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "endTime",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "address",
+                  "name": "refundee",
+                  "type": "address"
+                }
+              ]
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "endIncentive",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "refund",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "factory",
+          "outputs": [
+            {
+              "internalType": "contract IUniswapV3Factory",
+              "name": "",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "struct IUniswapV3Staker.IncentiveKey",
+              "name": "key",
+              "type": "tuple",
+              "components": [
+                {
+                  "internalType": "contract IERC20Minimal",
+                  "name": "rewardToken",
+                  "type": "address"
+                },
+                {
+                  "internalType": "contract IUniswapV3Pool",
+                  "name": "pool",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "startTime",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "endTime",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "address",
+                  "name": "refundee",
+                  "type": "address"
+                }
+              ]
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "getRewardInfo",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "reward",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint160",
+              "name": "secondsInsideX128",
+              "type": "uint160"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "incentiveId",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "incentives",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "totalRewardUnclaimed",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint160",
+              "name": "totalSecondsClaimedX128",
+              "type": "uint160"
+            },
+            {
+              "internalType": "uint96",
+              "name": "numberOfStakes",
+              "type": "uint96"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "maxIncentiveDuration",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "maxIncentiveStartLeadTime",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes[]",
+              "name": "data",
+              "type": "bytes[]"
+            }
+          ],
+          "stateMutability": "payable",
+          "type": "function",
+          "name": "multicall",
+          "outputs": [
+            {
+              "internalType": "bytes[]",
+              "name": "results",
+              "type": "bytes[]"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "nonfungiblePositionManager",
+          "outputs": [
+            {
+              "internalType": "contract INonfungiblePositionManager",
+              "name": "",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "operator",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes",
+              "name": "data",
+              "type": "bytes"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "onERC721Received",
+          "outputs": [
+            {
+              "internalType": "bytes4",
+              "name": "",
+              "type": "bytes4"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "contract IERC20Minimal",
+              "name": "rewardToken",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "rewards",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "rewardsOwed",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "struct IUniswapV3Staker.IncentiveKey",
+              "name": "key",
+              "type": "tuple",
+              "components": [
+                {
+                  "internalType": "contract IERC20Minimal",
+                  "name": "rewardToken",
+                  "type": "address"
+                },
+                {
+                  "internalType": "contract IUniswapV3Pool",
+                  "name": "pool",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "startTime",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "endTime",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "address",
+                  "name": "refundee",
+                  "type": "address"
+                }
+              ]
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "stakeToken"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "incentiveId",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "stakes",
+          "outputs": [
+            {
+              "internalType": "uint160",
+              "name": "secondsPerLiquidityInsideInitialX128",
+              "type": "uint160"
+            },
+            {
+              "internalType": "uint128",
+              "name": "liquidity",
+              "type": "uint128"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "transferDeposit"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "struct IUniswapV3Staker.IncentiveKey",
+              "name": "key",
+              "type": "tuple",
+              "components": [
+                {
+                  "internalType": "contract IERC20Minimal",
+                  "name": "rewardToken",
+                  "type": "address"
+                },
+                {
+                  "internalType": "contract IUniswapV3Pool",
+                  "name": "pool",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "startTime",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "endTime",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "address",
+                  "name": "refundee",
+                  "type": "address"
+                }
+              ]
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "unstakeToken"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "internalType": "bytes",
+              "name": "data",
+              "type": "bytes"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "withdrawToken"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "claimReward(address,address,uint256)": {
+            "params": {
+              "amountRequested": "The amount of reward tokens to claim. Claims entire reward amount if set to 0.",
+              "rewardToken": "The token being distributed as a reward",
+              "to": "The address where claimed rewards will be sent to"
+            },
+            "returns": {
+              "reward": "The amount of reward tokens claimed"
+            }
+          },
+          "createIncentive((address,address,uint256,uint256,address),uint256)": {
+            "params": {
+              "key": "Details of the incentive to create",
+              "reward": "The amount of reward tokens to be distributed"
+            }
+          },
+          "deposits(uint256)": {
+            "returns": {
+              "numberOfStakes": "Counter of how many incentives for which the liquidity is staked",
+              "owner": "The owner of the deposited NFT",
+              "tickLower": "The lower tick of the range",
+              "tickUpper": "The upper tick of the range"
+            }
+          },
+          "endIncentive((address,address,uint256,uint256,address))": {
+            "params": {
+              "key": "Details of the incentive to end"
+            },
+            "returns": {
+              "refund": "The remaining reward tokens when the incentive is ended"
+            }
+          },
+          "getRewardInfo((address,address,uint256,uint256,address),uint256)": {
+            "params": {
+              "key": "The key of the incentive",
+              "tokenId": "The ID of the token"
+            },
+            "returns": {
+              "reward": "The reward accrued to the NFT for the given incentive thus far"
+            }
+          },
+          "incentives(bytes32)": {
+            "params": {
+              "incentiveId": "The ID of the incentive computed from its parameters"
+            },
+            "returns": {
+              "numberOfStakes": "The count of deposits that are currently staked for the incentive",
+              "totalRewardUnclaimed": "The amount of reward token not yet claimed by users",
+              "totalSecondsClaimedX128": "Total liquidity-seconds claimed, represented as a UQ32.128"
+            }
+          },
+          "multicall(bytes[])": {
+            "details": "The `msg.value` should not be trusted for any method callable from multicall.",
+            "params": {
+              "data": "The encoded function data for each of the calls to make to this contract"
+            },
+            "returns": {
+              "results": "The results from each of the calls passed in via data"
+            }
+          },
+          "onERC721Received(address,address,uint256,bytes)": {
+            "details": "Whenever an {IERC721} `tokenId` token is transferred to this contract via {IERC721-safeTransferFrom} by `operator` from `from`, this function is called. It must return its Solidity selector to confirm the token transfer. If any other value is returned or the interface is not implemented by the recipient, the transfer will be reverted. The selector can be obtained in Solidity with `IERC721.onERC721Received.selector`."
+          },
+          "rewards(address,address)": {
+            "params": {
+              "owner": "The owner for which the rewards owed are checked",
+              "rewardToken": "The token for which to check rewards"
+            },
+            "returns": {
+              "rewardsOwed": "The amount of the reward token claimable by the owner"
+            }
+          },
+          "stakeToken((address,address,uint256,uint256,address),uint256)": {
+            "params": {
+              "key": "The key of the incentive for which to stake the NFT",
+              "tokenId": "The ID of the token to stake"
+            }
+          },
+          "stakes(uint256,bytes32)": {
+            "params": {
+              "incentiveId": "The ID of the incentive for which the token is staked",
+              "tokenId": "The ID of the staked token"
+            },
+            "returns": {
+              "liquidity": "The amount of liquidity in the NFT as of the last time the rewards were computed",
+              "secondsPerLiquidityInsideInitialX128": "secondsPerLiquidity represented as a UQ32.128"
+            }
+          },
+          "transferDeposit(uint256,address)": {
+            "params": {
+              "to": "The new owner of the deposit",
+              "tokenId": "The ID of the token (and the deposit) to transfer"
+            }
+          },
+          "unstakeToken((address,address,uint256,uint256,address),uint256)": {
+            "params": {
+              "key": "The key of the incentive for which to unstake the NFT",
+              "tokenId": "The ID of the token to unstake"
+            }
+          },
+          "withdrawToken(uint256,address,bytes)": {
+            "params": {
+              "data": "An optional data array that will be passed along to the `to` address via the NFT safeTransferFrom",
+              "to": "The address where the LP token will be sent",
+              "tokenId": "The unique identifier of an Uniswap V3 LP token"
+            }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "claimReward(address,address,uint256)": {
+            "notice": "Transfers `amountRequested` of accrued `rewardToken` rewards from the contract to the recipient `to`"
+          },
+          "createIncentive((address,address,uint256,uint256,address),uint256)": {
+            "notice": "Creates a new liquidity mining incentive program"
+          },
+          "deposits(uint256)": {
+            "notice": "Returns information about a deposited NFT"
+          },
+          "endIncentive((address,address,uint256,uint256,address))": {
+            "notice": "Ends an incentive after the incentive end time has passed and all stakes have been withdrawn"
+          },
+          "factory()": {
+            "notice": "The Uniswap V3 Factory"
+          },
+          "getRewardInfo((address,address,uint256,uint256,address),uint256)": {
+            "notice": "Calculates the reward amount that will be received for the given stake"
+          },
+          "incentives(bytes32)": {
+            "notice": "Represents a staking incentive"
+          },
+          "maxIncentiveDuration()": {
+            "notice": "The max duration of an incentive in seconds"
+          },
+          "maxIncentiveStartLeadTime()": {
+            "notice": "The max amount of seconds into the future the incentive startTime can be set"
+          },
+          "multicall(bytes[])": {
+            "notice": "Call multiple functions in the current contract and return the data from all of them if they all succeed"
+          },
+          "nonfungiblePositionManager()": {
+            "notice": "The nonfungible position manager with which this staking contract is compatible"
+          },
+          "rewards(address,address)": {
+            "notice": "Returns amounts of reward tokens owed to a given address according to the last time all stakes were updated"
+          },
+          "stakeToken((address,address,uint256,uint256,address),uint256)": {
+            "notice": "Stakes a Uniswap V3 LP token"
+          },
+          "stakes(uint256,bytes32)": {
+            "notice": "Returns information about a staked liquidity NFT"
+          },
+          "transferDeposit(uint256,address)": {
+            "notice": "Transfers ownership of a deposit from the sender to the given recipient"
+          },
+          "unstakeToken((address,address,uint256,uint256,address),uint256)": {
+            "notice": "Unstakes a Uniswap V3 LP token"
+          },
+          "withdrawToken(uint256,address,bytes)": {
+            "notice": "Withdraws a Uniswap V3 LP token `tokenId` from this contract to the recipient `to`"
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@ensdomains/=node_modules/@ensdomains/",
+        ":@mageswap/=node_modules/@mageswap/",
+        ":@openzeppelin/=node_modules/@openzeppelin/",
+        ":base64-sol/=node_modules/base64-sol/",
+        ":hardhat/=node_modules/hardhat/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "contracts/interfaces/IUniswapV3Staker.sol": "IUniswapV3Staker"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "contracts/interfaces/IUniswapV3Staker.sol": {
+        "keccak256": "0x752dba376c111db88e5d35c1316b5da50d13d7975db9b4c1768a77e036d0d4e3",
+        "urls": [
+          "bzz-raw://b14a761b42eeeb85c7a19d4bcd20b878a531e6c9164972cb5805a79c2a18003b",
+          "dweb:/ipfs/QmRar17LgwuTdChvgQrPSunQsYH2uNYD2UURF8Q2iimDLV"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-core/contracts/interfaces/IERC20Minimal.sol": {
+        "keccak256": "0xbbb4fbd3cf2221bba3218d27871f61f2852ff296cbe81946b935481ff181f735",
+        "urls": [
+          "bzz-raw://8ded0534518213ad286cbd3b7a120ec2070da0451f6d02e0bae6706b35f65fa3",
+          "dweb:/ipfs/QmcUVLd6GuJJ1Aw895kHprUQpwZwbo2SqPoSif3BciMfNF"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-core/contracts/interfaces/IUniswapV3Factory.sol": {
+        "keccak256": "0xcc3d0c93fc9ac0febbe09f941b465b57f750bcf3b48432da0b97dc289cfdc489",
+        "urls": [
+          "bzz-raw://b9379ad954680c44a0bc523b314ae4c4da735f9fe1d02aa56ea5bdba6f1136f2",
+          "dweb:/ipfs/QmZXdgQNXKAckrXWz9R3mc47F1fvDvr28a2ewJrwNAw71B"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-core/contracts/interfaces/IUniswapV3Pool.sol": {
+        "keccak256": "0xfe6113d518466cd6652c85b111e01f33eb62157f49ae5ed7d5a3947a2044adb1",
+        "urls": [
+          "bzz-raw://1c42b9e6f5902ac38dd43e25750939baa7e0c1425dc75afd717c4412731065d5",
+          "dweb:/ipfs/QmWaoacnzsucTvBME2o7YgZBZMhaHv7fkj83htHMVWJKWh"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolActions.sol": {
+        "keccak256": "0x9453dd0e7442188667d01d9b65de3f1e14e9511ff3e303179a15f6fc267f7634",
+        "urls": [
+          "bzz-raw://982f4328f956c3e60e67501e759eb292ac487f76460c774c50e9ae4fcc92aae5",
+          "dweb:/ipfs/QmRnzEDsaqtd9PJEVcgQi7p5aV5pMSvRUoGZJAdwFUJxgZ"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolDerivedState.sol": {
+        "keccak256": "0xe603ac5b17ecdee73ba2b27efdf386c257a19c14206e87eee77e2017b742d9e5",
+        "urls": [
+          "bzz-raw://8febc9bdb399a4d94bb89f5377732652e2400e4a8dee808201ade6848f9004e7",
+          "dweb:/ipfs/QmaKDqYYFU4d2W2iN77aDHptfbFmYZRrMYXHeGpJmM8C1c"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolEvents.sol": {
+        "keccak256": "0x8071514d0fe5d17d6fbd31c191cdfb703031c24e0ece3621d88ab10e871375cd",
+        "urls": [
+          "bzz-raw://d0b571930cc7488b1d546a7e9cea7c52d8b3c4e207da657ed0e0db7343b8cd03",
+          "dweb:/ipfs/QmaGK6vVwB95QSTR1XMYvrh7ivYAYZxi3fD7v6VMA4jZ39"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolImmutables.sol": {
+        "keccak256": "0xf6e5d2cd1139c4c276bdbc8e1d2b256e456c866a91f1b868da265c6d2685c3f7",
+        "urls": [
+          "bzz-raw://b99c8c9ae8e27ee6559e5866bea82cbc9ffc8247f8d15b7422a4deb287d4d047",
+          "dweb:/ipfs/QmfL8gaqt3ffAnm6nVj5ksuNpLygXuL3xq5VBqrkwC2JJ3"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolOwnerActions.sol": {
+        "keccak256": "0x759b78a2918af9e99e246dc3af084f654e48ef32bb4e4cb8a966aa3dcaece235",
+        "urls": [
+          "bzz-raw://64144fb96e1c7fdba87305acadb98a198d26a3d46c097cb3a666e567f6f29735",
+          "dweb:/ipfs/QmUnWVwN9FKB9uV5Pr8YfLpWZnYM2DENnRMaadZ492JS9u"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolState.sol": {
+        "keccak256": "0x852dc1f5df7dcf7f11e7bb3eed79f0cea72ad4b25f6a9d2c35aafb48925fd49f",
+        "urls": [
+          "bzz-raw://ed63907c38ff36b0e22bc9ffc53e791ea74f0d4f0e7c257fdfb5aaf8825b1f0f",
+          "dweb:/ipfs/QmSQrckghEjs6HVsA5GVgpNpZWvTXMY5eQLF7cN6deFeEg"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-periphery/contracts/interfaces/IERC721Permit.sol": {
+        "keccak256": "0x9e3c2a4ee65ddf95b2dfcb0815784eea3a295707e6f8b83e4c4f0f8fe2e3a1d4",
+        "urls": [
+          "bzz-raw://bfd939085b3618101b955f87c7fabf38338ba1aad480295acb8102ebc5d72471",
+          "dweb:/ipfs/QmauQD8bGDHTztmTDfaKXjzM7Wacrq2XU7VcTbwn1WrDBL"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-periphery/contracts/interfaces/IMulticall.sol": {
+        "keccak256": "0xa8f9d0061ee730a522dc4bae6bd5cabb3e997e2c5983da183e912bdca93dfa7b",
+        "urls": [
+          "bzz-raw://496b68d4f72d58cc83cf51bd9cc9c99aaa46dc3c3df7c951a9e50ba29ee33016",
+          "dweb:/ipfs/Qmc3bkXwuRP8mDpcKgvLgbCKn8tD8PGCaBjnLHSPMJCRGD"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-periphery/contracts/interfaces/INonfungiblePositionManager.sol": {
+        "keccak256": "0xe1dadc73e60bf05d0b4e0f05bd2847c5783e833cc10352c14763360b13495ee1",
+        "urls": [
+          "bzz-raw://6e3b10f75c101de044c1253672207399c1513fd1f0f17be31069c18c0b9a1460",
+          "dweb:/ipfs/QmXrkXNY6njQfepE7KbRtJMruGXfrZwsMMsW7m5e3XS9Hf"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-periphery/contracts/interfaces/IPeripheryImmutableState.sol": {
+        "keccak256": "0x7affcfeb5127c0925a71d6a65345e117c33537523aeca7bc98085ead8452519d",
+        "urls": [
+          "bzz-raw://e16b291294210e71cb0f20cd0afe62ae2dc6878d627f5ccc19c4dc9cd80aec3f",
+          "dweb:/ipfs/QmQGitSyBr26nour81BZmpmDMyJpvZRqHQZvnCD1Acb127"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-periphery/contracts/interfaces/IPeripheryPayments.sol": {
+        "keccak256": "0xb547e10f1e69bed03621a62b73a503e260643066c6b4054867a4d1fef47eb274",
+        "urls": [
+          "bzz-raw://f9a90f58f5fd5fb42f7811f4094113b532f307b14a73764c91f977590747f407",
+          "dweb:/ipfs/QmSeNH2mfiDMKf3Q6V2sqtNxx1s72JNuA1VVxRM9HoMqYp"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-periphery/contracts/interfaces/IPoolInitializer.sol": {
+        "keccak256": "0x9d7695e8d94c22cc5fcced602017aabb988de89981ea7bee29ea629d5328a862",
+        "urls": [
+          "bzz-raw://61b50933026ee1017db2a6273af8cedc3238c95dca58880db0918dbdbb2f064f",
+          "dweb:/ipfs/QmUebR26pqG25d18aBELKz8aFFKkmHa8PxntzXTA7o9Ldu"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-periphery/contracts/libraries/PoolAddress.sol": {
+        "keccak256": "0x5edd84eb8ba7c12fd8cb6cffe52e1e9f3f6464514ee5f539c2283826209035a2",
+        "urls": [
+          "bzz-raw://f375d0e6d5ea3674e1aa6f112b021e9a86721a6a2f3cb22d673378b30cf0e840",
+          "dweb:/ipfs/QmWJir2qnJyp963mU6U3jEEx9i3H3V5BgKawAfSnG1pC8w"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@openzeppelin/contracts/introspection/IERC165.sol": {
+        "keccak256": "0xd2f30fad5b24c4120f96dbac83aacdb7993ee610a9092bc23c44463da292bf8d",
+        "urls": [
+          "bzz-raw://e3d4e72409e392c7694b6405a0136cf073d8da016df33ef8f9ad195f724ebfea",
+          "dweb:/ipfs/QmPGcddKq6CgsiKnxUUif2q76wRqP3dmdQ6bKuHCLmb8Wa"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": {
+        "keccak256": "0xb11597841d47f7a773bca63ca323c76f804cb5d944788de0327db5526319dc82",
+        "urls": [
+          "bzz-raw://930d2da1934886a1098753be4173dd89c45ca0b306a1930accd37e00b1af4aaf",
+          "dweb:/ipfs/QmVSXnvEV41d43k8cfpANHoTYMKgBDBL8iCbxkLfEtQZBe"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/token/ERC721/IERC721Enumerable.sol": {
+        "keccak256": "0x2789dfea2d73182683d637db5729201f6730dae6113030a94c828f8688f38f2f",
+        "urls": [
+          "bzz-raw://36374eaa68c0737bf7e1ae13d55327b4868fb0825e971ee729f4b8d355ededb4",
+          "dweb:/ipfs/QmYN9yuzz4P5SumiT6rgYgTEY8MhnPQapMwx2LHxRKju7r"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/token/ERC721/IERC721Metadata.sol": {
+        "keccak256": "0xc82c7d1d732081d9bd23f1555ebdf8f3bc1738bc42c2bfc4b9aa7564d9fa3573",
+        "urls": [
+          "bzz-raw://5cb07e4ff3352161510a0d1536fe93f3c62526358e073a8bab2a8abbb27d0da1",
+          "dweb:/ipfs/QmX7K1JjnWKT1JzZT92Qx5zNJQYbssE533TLFHP88hj2fb"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
+        "keccak256": "0x05604ffcf69e416b8a42728bb0e4fd75170d8fac70bf1a284afeb4752a9bc52f",
+        "urls": [
+          "bzz-raw://a8a7fd1043372336ecccdbcbcf4962c6df8958dc9c7c7f8361fc2b3dd23570cc",
+          "dweb:/ipfs/QmYHKgZxnanBfu7Q8ZicVhDDuB7XRGxuwvmCjfQQ1E5j39"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "contracts/interfaces/IUniswapV3Staker.sol",
+    "id": 1287,
+    "exportedSymbols": {
+      "IERC165": [
+        3257
+      ],
+      "IERC20Minimal": [
+        1893
+      ],
+      "IERC721": [
+        3524
+      ],
+      "IERC721Enumerable": [
+        3555
+      ],
+      "IERC721Metadata": [
+        3582
+      ],
+      "IERC721Permit": [
+        2711
+      ],
+      "IERC721Receiver": [
+        3600
+      ],
+      "IMulticall": [
+        2726
+      ],
+      "INonfungiblePositionManager": [
+        2921
+      ],
+      "IPeripheryImmutableState": [
+        2937
+      ],
+      "IPeripheryPayments": [
+        2963
+      ],
+      "IPoolInitializer": [
+        2982
+      ],
+      "IUniswapV3Factory": [
+        1976
+      ],
+      "IUniswapV3Pool": [
+        1998
+      ],
+      "IUniswapV3PoolActions": [
+        2094
+      ],
+      "IUniswapV3PoolDerivedState": [
+        2125
+      ],
+      "IUniswapV3PoolEvents": [
+        2244
+      ],
+      "IUniswapV3PoolImmutables": [
+        2284
+      ],
+      "IUniswapV3PoolOwnerActions": [
+        2310
+      ],
+      "IUniswapV3PoolState": [
+        2418
+      ],
+      "IUniswapV3Staker": [
+        1286
+      ],
+      "PoolAddress": [
+        3074
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "45:9064:1",
+    "nodes": [
+      {
+        "id": 1062,
+        "nodeType": "PragmaDirective",
+        "src": "45:23:1",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "=",
+          "0.7",
+          ".6"
+        ]
+      },
+      {
+        "id": 1063,
+        "nodeType": "PragmaDirective",
+        "src": "69:19:1",
+        "nodes": [],
+        "literals": [
+          "abicoder",
+          "v2"
+        ]
+      },
+      {
+        "id": 1064,
+        "nodeType": "ImportDirective",
+        "src": "90:66:1",
+        "nodes": [],
+        "absolutePath": "node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol",
+        "file": "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol",
+        "scope": 1287,
+        "sourceUnit": 3601,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 1065,
+        "nodeType": "ImportDirective",
+        "src": "158:70:1",
+        "nodes": [],
+        "absolutePath": "node_modules/@mageswap/v3-core/contracts/interfaces/IUniswapV3Factory.sol",
+        "file": "@mageswap/v3-core/contracts/interfaces/IUniswapV3Factory.sol",
+        "scope": 1287,
+        "sourceUnit": 1977,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 1066,
+        "nodeType": "ImportDirective",
+        "src": "229:67:1",
+        "nodes": [],
+        "absolutePath": "node_modules/@mageswap/v3-core/contracts/interfaces/IUniswapV3Pool.sol",
+        "file": "@mageswap/v3-core/contracts/interfaces/IUniswapV3Pool.sol",
+        "scope": 1287,
+        "sourceUnit": 1999,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 1067,
+        "nodeType": "ImportDirective",
+        "src": "297:66:1",
+        "nodes": [],
+        "absolutePath": "node_modules/@mageswap/v3-core/contracts/interfaces/IERC20Minimal.sol",
+        "file": "@mageswap/v3-core/contracts/interfaces/IERC20Minimal.sol",
+        "scope": 1287,
+        "sourceUnit": 1894,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 1068,
+        "nodeType": "ImportDirective",
+        "src": "365:85:1",
+        "nodes": [],
+        "absolutePath": "node_modules/@mageswap/v3-periphery/contracts/interfaces/INonfungiblePositionManager.sol",
+        "file": "@mageswap/v3-periphery/contracts/interfaces/INonfungiblePositionManager.sol",
+        "scope": 1287,
+        "sourceUnit": 2922,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 1069,
+        "nodeType": "ImportDirective",
+        "src": "451:68:1",
+        "nodes": [],
+        "absolutePath": "node_modules/@mageswap/v3-periphery/contracts/interfaces/IMulticall.sol",
+        "file": "@mageswap/v3-periphery/contracts/interfaces/IMulticall.sol",
+        "scope": 1287,
+        "sourceUnit": 2727,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 1286,
+        "nodeType": "ContractDefinition",
+        "src": "646:8462:1",
+        "nodes": [
+          {
+            "id": 1085,
+            "nodeType": "StructDefinition",
+            "src": "1051:169:1",
+            "nodes": [],
+            "canonicalName": "IUniswapV3Staker.IncentiveKey",
+            "members": [
+              {
+                "constant": false,
+                "id": 1076,
+                "mutability": "mutable",
+                "name": "rewardToken",
+                "nodeType": "VariableDeclaration",
+                "scope": 1085,
+                "src": "1081:25:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_IERC20Minimal_$1893",
+                  "typeString": "contract IERC20Minimal"
+                },
+                "typeName": {
+                  "id": 1075,
+                  "name": "IERC20Minimal",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 1893,
+                  "src": "1081:13:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IERC20Minimal_$1893",
+                    "typeString": "contract IERC20Minimal"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1078,
+                "mutability": "mutable",
+                "name": "pool",
+                "nodeType": "VariableDeclaration",
+                "scope": 1085,
+                "src": "1116:19:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_IUniswapV3Pool_$1998",
+                  "typeString": "contract IUniswapV3Pool"
+                },
+                "typeName": {
+                  "id": 1077,
+                  "name": "IUniswapV3Pool",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 1998,
+                  "src": "1116:14:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IUniswapV3Pool_$1998",
+                    "typeString": "contract IUniswapV3Pool"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1080,
+                "mutability": "mutable",
+                "name": "startTime",
+                "nodeType": "VariableDeclaration",
+                "scope": 1085,
+                "src": "1145:17:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1079,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1145:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1082,
+                "mutability": "mutable",
+                "name": "endTime",
+                "nodeType": "VariableDeclaration",
+                "scope": 1085,
+                "src": "1172:15:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1081,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1172:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1084,
+                "mutability": "mutable",
+                "name": "refundee",
+                "nodeType": "VariableDeclaration",
+                "scope": 1085,
+                "src": "1197:16:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 1083,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1197:7:1",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "IncentiveKey",
+            "scope": 1286,
+            "visibility": "public"
+          },
+          {
+            "id": 1091,
+            "nodeType": "FunctionDefinition",
+            "src": "1265:61:1",
+            "nodes": [],
+            "documentation": {
+              "id": 1086,
+              "nodeType": "StructuredDocumentation",
+              "src": "1226:34:1",
+              "text": "@notice The Uniswap V3 Factory"
+            },
+            "functionSelector": "c45a0155",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "factory",
+            "parameters": {
+              "id": 1087,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1281:2:1"
+            },
+            "returnParameters": {
+              "id": 1090,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1089,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1091,
+                  "src": "1307:17:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IUniswapV3Factory_$1976",
+                    "typeString": "contract IUniswapV3Factory"
+                  },
+                  "typeName": {
+                    "id": 1088,
+                    "name": "IUniswapV3Factory",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1976,
+                    "src": "1307:17:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IUniswapV3Factory_$1976",
+                      "typeString": "contract IUniswapV3Factory"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1306:19:1"
+            },
+            "scope": 1286,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 1097,
+            "nodeType": "FunctionDefinition",
+            "src": "1428:90:1",
+            "nodes": [],
+            "documentation": {
+              "id": 1092,
+              "nodeType": "StructuredDocumentation",
+              "src": "1332:91:1",
+              "text": "@notice The nonfungible position manager with which this staking contract is compatible"
+            },
+            "functionSelector": "b44a2722",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "nonfungiblePositionManager",
+            "parameters": {
+              "id": 1093,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1463:2:1"
+            },
+            "returnParameters": {
+              "id": 1096,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1095,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1097,
+                  "src": "1489:27:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_INonfungiblePositionManager_$2921",
+                    "typeString": "contract INonfungiblePositionManager"
+                  },
+                  "typeName": {
+                    "id": 1094,
+                    "name": "INonfungiblePositionManager",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2921,
+                    "src": "1489:27:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_INonfungiblePositionManager_$2921",
+                      "typeString": "contract INonfungiblePositionManager"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1488:29:1"
+            },
+            "scope": 1286,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 1103,
+            "nodeType": "FunctionDefinition",
+            "src": "1584:64:1",
+            "nodes": [],
+            "documentation": {
+              "id": 1098,
+              "nodeType": "StructuredDocumentation",
+              "src": "1524:55:1",
+              "text": "@notice The max duration of an incentive in seconds"
+            },
+            "functionSelector": "3dc0714b",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "maxIncentiveDuration",
+            "parameters": {
+              "id": 1099,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1613:2:1"
+            },
+            "returnParameters": {
+              "id": 1102,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1101,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1103,
+                  "src": "1639:7:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1100,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1639:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1638:9:1"
+            },
+            "scope": 1286,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 1109,
+            "nodeType": "FunctionDefinition",
+            "src": "1747:69:1",
+            "nodes": [],
+            "documentation": {
+              "id": 1104,
+              "nodeType": "StructuredDocumentation",
+              "src": "1654:88:1",
+              "text": "@notice The max amount of seconds into the future the incentive startTime can be set"
+            },
+            "functionSelector": "01b75440",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "maxIncentiveStartLeadTime",
+            "parameters": {
+              "id": 1105,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1781:2:1"
+            },
+            "returnParameters": {
+              "id": 1108,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1107,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1109,
+                  "src": "1807:7:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1106,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1807:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1806:9:1"
+            },
+            "scope": 1286,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 1121,
+            "nodeType": "FunctionDefinition",
+            "src": "2234:220:1",
+            "nodes": [],
+            "documentation": {
+              "id": 1110,
+              "nodeType": "StructuredDocumentation",
+              "src": "1822:407:1",
+              "text": "@notice Represents a staking incentive\n @param incentiveId The ID of the incentive computed from its parameters\n @return totalRewardUnclaimed The amount of reward token not yet claimed by users\n @return totalSecondsClaimedX128 Total liquidity-seconds claimed, represented as a UQ32.128\n @return numberOfStakes The count of deposits that are currently staked for the incentive"
+            },
+            "functionSelector": "60777795",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "incentives",
+            "parameters": {
+              "id": 1113,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1112,
+                  "mutability": "mutable",
+                  "name": "incentiveId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1121,
+                  "src": "2254:19:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 1111,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2254:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2253:21:1"
+            },
+            "returnParameters": {
+              "id": 1120,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1115,
+                  "mutability": "mutable",
+                  "name": "totalRewardUnclaimed",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1121,
+                  "src": "2335:28:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1114,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2335:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1117,
+                  "mutability": "mutable",
+                  "name": "totalSecondsClaimedX128",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1121,
+                  "src": "2377:31:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint160",
+                    "typeString": "uint160"
+                  },
+                  "typeName": {
+                    "id": 1116,
+                    "name": "uint160",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2377:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint160",
+                      "typeString": "uint160"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1119,
+                  "mutability": "mutable",
+                  "name": "numberOfStakes",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1121,
+                  "src": "2422:21:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint96",
+                    "typeString": "uint96"
+                  },
+                  "typeName": {
+                    "id": 1118,
+                    "name": "uint96",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2422:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint96",
+                      "typeString": "uint96"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2321:132:1"
+            },
+            "scope": 1286,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 1135,
+            "nodeType": "FunctionDefinition",
+            "src": "2775:212:1",
+            "nodes": [],
+            "documentation": {
+              "id": 1122,
+              "nodeType": "StructuredDocumentation",
+              "src": "2460:310:1",
+              "text": "@notice Returns information about a deposited NFT\n @return owner The owner of the deposited NFT\n @return numberOfStakes Counter of how many incentives for which the liquidity is staked\n @return tickLower The lower tick of the range\n @return tickUpper The upper tick of the range"
+            },
+            "functionSelector": "b02c43d0",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "deposits",
+            "parameters": {
+              "id": 1125,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1124,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1135,
+                  "src": "2793:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1123,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2793:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2792:17:1"
+            },
+            "returnParameters": {
+              "id": 1134,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1127,
+                  "mutability": "mutable",
+                  "name": "owner",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1135,
+                  "src": "2870:13:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1126,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2870:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1129,
+                  "mutability": "mutable",
+                  "name": "numberOfStakes",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1135,
+                  "src": "2897:21:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint48",
+                    "typeString": "uint48"
+                  },
+                  "typeName": {
+                    "id": 1128,
+                    "name": "uint48",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2897:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint48",
+                      "typeString": "uint48"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1131,
+                  "mutability": "mutable",
+                  "name": "tickLower",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1135,
+                  "src": "2932:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int24",
+                    "typeString": "int24"
+                  },
+                  "typeName": {
+                    "id": 1130,
+                    "name": "int24",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2932:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_int24",
+                      "typeString": "int24"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1133,
+                  "mutability": "mutable",
+                  "name": "tickUpper",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1135,
+                  "src": "2961:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int24",
+                    "typeString": "int24"
+                  },
+                  "typeName": {
+                    "id": 1132,
+                    "name": "int24",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2961:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_int24",
+                      "typeString": "int24"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2856:130:1"
+            },
+            "scope": 1286,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 1147,
+            "nodeType": "FunctionDefinition",
+            "src": "3395:166:1",
+            "nodes": [],
+            "documentation": {
+              "id": 1136,
+              "nodeType": "StructuredDocumentation",
+              "src": "2993:397:1",
+              "text": "@notice Returns information about a staked liquidity NFT\n @param tokenId The ID of the staked token\n @param incentiveId The ID of the incentive for which the token is staked\n @return secondsPerLiquidityInsideInitialX128 secondsPerLiquidity represented as a UQ32.128\n @return liquidity The amount of liquidity in the NFT as of the last time the rewards were computed"
+            },
+            "functionSelector": "c36c1ea5",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "stakes",
+            "parameters": {
+              "id": 1141,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1138,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1147,
+                  "src": "3411:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1137,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3411:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1140,
+                  "mutability": "mutable",
+                  "name": "incentiveId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1147,
+                  "src": "3428:19:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 1139,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3428:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3410:38:1"
+            },
+            "returnParameters": {
+              "id": 1146,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1143,
+                  "mutability": "mutable",
+                  "name": "secondsPerLiquidityInsideInitialX128",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1147,
+                  "src": "3496:44:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint160",
+                    "typeString": "uint160"
+                  },
+                  "typeName": {
+                    "id": 1142,
+                    "name": "uint160",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3496:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint160",
+                      "typeString": "uint160"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1145,
+                  "mutability": "mutable",
+                  "name": "liquidity",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1147,
+                  "src": "3542:17:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint128",
+                    "typeString": "uint128"
+                  },
+                  "typeName": {
+                    "id": 1144,
+                    "name": "uint128",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3542:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint128",
+                      "typeString": "uint128"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3495:65:1"
+            },
+            "scope": 1286,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 1157,
+            "nodeType": "FunctionDefinition",
+            "src": "3907:103:1",
+            "nodes": [],
+            "documentation": {
+              "id": 1148,
+              "nodeType": "StructuredDocumentation",
+              "src": "3567:335:1",
+              "text": "@notice Returns amounts of reward tokens owed to a given address according to the last time all stakes were updated\n @param rewardToken The token for which to check rewards\n @param owner The owner for which the rewards owed are checked\n @return rewardsOwed The amount of the reward token claimable by the owner"
+            },
+            "functionSelector": "e70b9e27",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "rewards",
+            "parameters": {
+              "id": 1153,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1150,
+                  "mutability": "mutable",
+                  "name": "rewardToken",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1157,
+                  "src": "3924:25:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IERC20Minimal_$1893",
+                    "typeString": "contract IERC20Minimal"
+                  },
+                  "typeName": {
+                    "id": 1149,
+                    "name": "IERC20Minimal",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1893,
+                    "src": "3924:13:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20Minimal_$1893",
+                      "typeString": "contract IERC20Minimal"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1152,
+                  "mutability": "mutable",
+                  "name": "owner",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1157,
+                  "src": "3951:13:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1151,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3951:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3923:42:1"
+            },
+            "returnParameters": {
+              "id": 1156,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1155,
+                  "mutability": "mutable",
+                  "name": "rewardsOwed",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1157,
+                  "src": "3989:19:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1154,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3989:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3988:21:1"
+            },
+            "scope": 1286,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 1165,
+            "nodeType": "FunctionDefinition",
+            "src": "4203:75:1",
+            "nodes": [],
+            "documentation": {
+              "id": 1158,
+              "nodeType": "StructuredDocumentation",
+              "src": "4016:182:1",
+              "text": "@notice Creates a new liquidity mining incentive program\n @param key Details of the incentive to create\n @param reward The amount of reward tokens to be distributed"
+            },
+            "functionSelector": "5cc5e3d9",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "createIncentive",
+            "parameters": {
+              "id": 1163,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1160,
+                  "mutability": "mutable",
+                  "name": "key",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1165,
+                  "src": "4228:23:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_IncentiveKey_$1085_memory_ptr",
+                    "typeString": "struct IUniswapV3Staker.IncentiveKey"
+                  },
+                  "typeName": {
+                    "id": 1159,
+                    "name": "IncentiveKey",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1085,
+                    "src": "4228:12:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_IncentiveKey_$1085_storage_ptr",
+                      "typeString": "struct IUniswapV3Staker.IncentiveKey"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1162,
+                  "mutability": "mutable",
+                  "name": "reward",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1165,
+                  "src": "4253:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1161,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4253:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4227:41:1"
+            },
+            "returnParameters": {
+              "id": 1164,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4277:0:1"
+            },
+            "scope": 1286,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 1173,
+            "nodeType": "FunctionDefinition",
+            "src": "4523:81:1",
+            "nodes": [],
+            "documentation": {
+              "id": 1166,
+              "nodeType": "StructuredDocumentation",
+              "src": "4284:234:1",
+              "text": "@notice Ends an incentive after the incentive end time has passed and all stakes have been withdrawn\n @param key Details of the incentive to end\n @return refund The remaining reward tokens when the incentive is ended"
+            },
+            "functionSelector": "b5ada6e4",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "endIncentive",
+            "parameters": {
+              "id": 1169,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1168,
+                  "mutability": "mutable",
+                  "name": "key",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1173,
+                  "src": "4545:23:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_IncentiveKey_$1085_memory_ptr",
+                    "typeString": "struct IUniswapV3Staker.IncentiveKey"
+                  },
+                  "typeName": {
+                    "id": 1167,
+                    "name": "IncentiveKey",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1085,
+                    "src": "4545:12:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_IncentiveKey_$1085_storage_ptr",
+                      "typeString": "struct IUniswapV3Staker.IncentiveKey"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4544:25:1"
+            },
+            "returnParameters": {
+              "id": 1172,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1171,
+                  "mutability": "mutable",
+                  "name": "refund",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1173,
+                  "src": "4588:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1170,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4588:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4587:16:1"
+            },
+            "scope": 1286,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 1181,
+            "nodeType": "FunctionDefinition",
+            "src": "4818:63:1",
+            "nodes": [],
+            "documentation": {
+              "id": 1174,
+              "nodeType": "StructuredDocumentation",
+              "src": "4610:203:1",
+              "text": "@notice Transfers ownership of a deposit from the sender to the given recipient\n @param tokenId The ID of the token (and the deposit) to transfer\n @param to The new owner of the deposit"
+            },
+            "functionSelector": "26bfee04",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "transferDeposit",
+            "parameters": {
+              "id": 1179,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1176,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1181,
+                  "src": "4843:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1175,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4843:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1178,
+                  "mutability": "mutable",
+                  "name": "to",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1181,
+                  "src": "4860:10:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1177,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4860:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4842:29:1"
+            },
+            "returnParameters": {
+              "id": 1180,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4880:0:1"
+            },
+            "scope": 1286,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 1191,
+            "nodeType": "FunctionDefinition",
+            "src": "5237:110:1",
+            "nodes": [],
+            "documentation": {
+              "id": 1182,
+              "nodeType": "StructuredDocumentation",
+              "src": "4887:345:1",
+              "text": "@notice Withdraws a Uniswap V3 LP token `tokenId` from this contract to the recipient `to`\n @param tokenId The unique identifier of an Uniswap V3 LP token\n @param to The address where the LP token will be sent\n @param data An optional data array that will be passed along to the `to` address via the NFT safeTransferFrom"
+            },
+            "functionSelector": "3c423f0b",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "withdrawToken",
+            "parameters": {
+              "id": 1189,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1184,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1191,
+                  "src": "5269:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1183,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5269:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1186,
+                  "mutability": "mutable",
+                  "name": "to",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1191,
+                  "src": "5294:10:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1185,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5294:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1188,
+                  "mutability": "mutable",
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1191,
+                  "src": "5314:17:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 1187,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5314:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5259:78:1"
+            },
+            "returnParameters": {
+              "id": 1190,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "5346:0:1"
+            },
+            "scope": 1286,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 1199,
+            "nodeType": "FunctionDefinition",
+            "src": "5521:71:1",
+            "nodes": [],
+            "documentation": {
+              "id": 1192,
+              "nodeType": "StructuredDocumentation",
+              "src": "5353:163:1",
+              "text": "@notice Stakes a Uniswap V3 LP token\n @param key The key of the incentive for which to stake the NFT\n @param tokenId The ID of the token to stake"
+            },
+            "functionSelector": "f2d2909b",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "stakeToken",
+            "parameters": {
+              "id": 1197,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1194,
+                  "mutability": "mutable",
+                  "name": "key",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1199,
+                  "src": "5541:23:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_IncentiveKey_$1085_memory_ptr",
+                    "typeString": "struct IUniswapV3Staker.IncentiveKey"
+                  },
+                  "typeName": {
+                    "id": 1193,
+                    "name": "IncentiveKey",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1085,
+                    "src": "5541:12:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_IncentiveKey_$1085_storage_ptr",
+                      "typeString": "struct IUniswapV3Staker.IncentiveKey"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1196,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1199,
+                  "src": "5566:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1195,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5566:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5540:42:1"
+            },
+            "returnParameters": {
+              "id": 1198,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "5591:0:1"
+            },
+            "scope": 1286,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 1207,
+            "nodeType": "FunctionDefinition",
+            "src": "5772:73:1",
+            "nodes": [],
+            "documentation": {
+              "id": 1200,
+              "nodeType": "StructuredDocumentation",
+              "src": "5598:169:1",
+              "text": "@notice Unstakes a Uniswap V3 LP token\n @param key The key of the incentive for which to unstake the NFT\n @param tokenId The ID of the token to unstake"
+            },
+            "functionSelector": "f549ab42",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "unstakeToken",
+            "parameters": {
+              "id": 1205,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1202,
+                  "mutability": "mutable",
+                  "name": "key",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1207,
+                  "src": "5794:23:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_IncentiveKey_$1085_memory_ptr",
+                    "typeString": "struct IUniswapV3Staker.IncentiveKey"
+                  },
+                  "typeName": {
+                    "id": 1201,
+                    "name": "IncentiveKey",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1085,
+                    "src": "5794:12:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_IncentiveKey_$1085_storage_ptr",
+                      "typeString": "struct IUniswapV3Staker.IncentiveKey"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1204,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1207,
+                  "src": "5819:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1203,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5819:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5793:42:1"
+            },
+            "returnParameters": {
+              "id": 1206,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "5844:0:1"
+            },
+            "scope": 1286,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 1219,
+            "nodeType": "FunctionDefinition",
+            "src": "6272:149:1",
+            "nodes": [],
+            "documentation": {
+              "id": 1208,
+              "nodeType": "StructuredDocumentation",
+              "src": "5851:416:1",
+              "text": "@notice Transfers `amountRequested` of accrued `rewardToken` rewards from the contract to the recipient `to`\n @param rewardToken The token being distributed as a reward\n @param to The address where claimed rewards will be sent to\n @param amountRequested The amount of reward tokens to claim. Claims entire reward amount if set to 0.\n @return reward The amount of reward tokens claimed"
+            },
+            "functionSelector": "2f2d783d",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "claimReward",
+            "parameters": {
+              "id": 1215,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1210,
+                  "mutability": "mutable",
+                  "name": "rewardToken",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1219,
+                  "src": "6302:25:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IERC20Minimal_$1893",
+                    "typeString": "contract IERC20Minimal"
+                  },
+                  "typeName": {
+                    "id": 1209,
+                    "name": "IERC20Minimal",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1893,
+                    "src": "6302:13:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20Minimal_$1893",
+                      "typeString": "contract IERC20Minimal"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1212,
+                  "mutability": "mutable",
+                  "name": "to",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1219,
+                  "src": "6337:10:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1211,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6337:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1214,
+                  "mutability": "mutable",
+                  "name": "amountRequested",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1219,
+                  "src": "6357:23:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1213,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6357:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "6292:94:1"
+            },
+            "returnParameters": {
+              "id": 1218,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1217,
+                  "mutability": "mutable",
+                  "name": "reward",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1219,
+                  "src": "6405:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1216,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6405:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "6404:16:1"
+            },
+            "scope": 1286,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 1231,
+            "nodeType": "FunctionDefinition",
+            "src": "6687:142:1",
+            "nodes": [],
+            "documentation": {
+              "id": 1220,
+              "nodeType": "StructuredDocumentation",
+              "src": "6427:255:1",
+              "text": "@notice Calculates the reward amount that will be received for the given stake\n @param key The key of the incentive\n @param tokenId The ID of the token\n @return reward The reward accrued to the NFT for the given incentive thus far"
+            },
+            "functionSelector": "d953186e",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getRewardInfo",
+            "parameters": {
+              "id": 1225,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1222,
+                  "mutability": "mutable",
+                  "name": "key",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1231,
+                  "src": "6710:23:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_IncentiveKey_$1085_memory_ptr",
+                    "typeString": "struct IUniswapV3Staker.IncentiveKey"
+                  },
+                  "typeName": {
+                    "id": 1221,
+                    "name": "IncentiveKey",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1085,
+                    "src": "6710:12:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_IncentiveKey_$1085_storage_ptr",
+                      "typeString": "struct IUniswapV3Staker.IncentiveKey"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1224,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1231,
+                  "src": "6735:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1223,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6735:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "6709:42:1"
+            },
+            "returnParameters": {
+              "id": 1230,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1227,
+                  "mutability": "mutable",
+                  "name": "reward",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1231,
+                  "src": "6786:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1226,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6786:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1229,
+                  "mutability": "mutable",
+                  "name": "secondsInsideX128",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1231,
+                  "src": "6802:25:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint160",
+                    "typeString": "uint160"
+                  },
+                  "typeName": {
+                    "id": 1228,
+                    "name": "uint160",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6802:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint160",
+                      "typeString": "uint160"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "6785:43:1"
+            },
+            "scope": 1286,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 1246,
+            "nodeType": "EventDefinition",
+            "src": "7316:211:1",
+            "nodes": [],
+            "anonymous": false,
+            "documentation": {
+              "id": 1232,
+              "nodeType": "StructuredDocumentation",
+              "src": "6835:476:1",
+              "text": "@notice Event emitted when a liquidity mining incentive has been created\n @param rewardToken The token being distributed as a reward\n @param pool The Uniswap V3 pool\n @param startTime The time when the incentive program begins\n @param endTime The time when rewards stop accruing\n @param refundee The address which receives any remaining reward tokens after the end time\n @param reward The amount of reward tokens to be distributed"
+            },
+            "name": "IncentiveCreated",
+            "parameters": {
+              "id": 1245,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1234,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "rewardToken",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1246,
+                  "src": "7348:33:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IERC20Minimal_$1893",
+                    "typeString": "contract IERC20Minimal"
+                  },
+                  "typeName": {
+                    "id": 1233,
+                    "name": "IERC20Minimal",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1893,
+                    "src": "7348:13:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20Minimal_$1893",
+                      "typeString": "contract IERC20Minimal"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1236,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "pool",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1246,
+                  "src": "7391:27:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IUniswapV3Pool_$1998",
+                    "typeString": "contract IUniswapV3Pool"
+                  },
+                  "typeName": {
+                    "id": 1235,
+                    "name": "IUniswapV3Pool",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1998,
+                    "src": "7391:14:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IUniswapV3Pool_$1998",
+                      "typeString": "contract IUniswapV3Pool"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1238,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "startTime",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1246,
+                  "src": "7428:17:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1237,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "7428:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1240,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "endTime",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1246,
+                  "src": "7455:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1239,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "7455:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1242,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "refundee",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1246,
+                  "src": "7480:16:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1241,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "7480:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1244,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "reward",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1246,
+                  "src": "7506:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1243,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "7506:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "7338:188:1"
+            }
+          },
+          {
+            "id": 1253,
+            "nodeType": "EventDefinition",
+            "src": "7735:66:1",
+            "nodes": [],
+            "anonymous": false,
+            "documentation": {
+              "id": 1247,
+              "nodeType": "StructuredDocumentation",
+              "src": "7533:197:1",
+              "text": "@notice Event that can be emitted when a liquidity mining incentive has ended\n @param incentiveId The incentive which is ending\n @param refund The amount of reward tokens refunded"
+            },
+            "name": "IncentiveEnded",
+            "parameters": {
+              "id": 1252,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1249,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "incentiveId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1253,
+                  "src": "7756:27:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 1248,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "7756:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1251,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "refund",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1253,
+                  "src": "7785:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1250,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "7785:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "7755:45:1"
+            }
+          },
+          {
+            "id": 1262,
+            "nodeType": "EventDefinition",
+            "src": "8087:102:1",
+            "nodes": [],
+            "anonymous": false,
+            "documentation": {
+              "id": 1254,
+              "nodeType": "StructuredDocumentation",
+              "src": "7807:275:1",
+              "text": "@notice Emitted when ownership of a deposit changes\n @param tokenId The ID of the deposit (and token) that is being transferred\n @param oldOwner The owner before the deposit was transferred\n @param newOwner The owner after the deposit was transferred"
+            },
+            "name": "DepositTransferred",
+            "parameters": {
+              "id": 1261,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1256,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1262,
+                  "src": "8112:23:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1255,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "8112:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1258,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "oldOwner",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1262,
+                  "src": "8137:24:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1257,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "8137:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1260,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "newOwner",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1262,
+                  "src": "8163:24:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1259,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "8163:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "8111:77:1"
+            }
+          },
+          {
+            "id": 1271,
+            "nodeType": "EventDefinition",
+            "src": "8466:91:1",
+            "nodes": [],
+            "anonymous": false,
+            "documentation": {
+              "id": 1263,
+              "nodeType": "StructuredDocumentation",
+              "src": "8195:266:1",
+              "text": "@notice Event emitted when a Uniswap V3 LP token has been staked\n @param tokenId The unique identifier of an Uniswap V3 LP token\n @param liquidity The amount of liquidity staked\n @param incentiveId The incentive in which the token is staking"
+            },
+            "name": "TokenStaked",
+            "parameters": {
+              "id": 1270,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1265,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1271,
+                  "src": "8484:23:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1264,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "8484:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1267,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "incentiveId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1271,
+                  "src": "8509:27:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 1266,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "8509:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1269,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "liquidity",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1271,
+                  "src": "8538:17:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint128",
+                    "typeString": "uint128"
+                  },
+                  "typeName": {
+                    "id": 1268,
+                    "name": "uint128",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "8538:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint128",
+                      "typeString": "uint128"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "8483:73:1"
+            }
+          },
+          {
+            "id": 1278,
+            "nodeType": "EventDefinition",
+            "src": "8780:74:1",
+            "nodes": [],
+            "anonymous": false,
+            "documentation": {
+              "id": 1272,
+              "nodeType": "StructuredDocumentation",
+              "src": "8563:212:1",
+              "text": "@notice Event emitted when a Uniswap V3 LP token has been unstaked\n @param tokenId The unique identifier of an Uniswap V3 LP token\n @param incentiveId The incentive in which the token is staking"
+            },
+            "name": "TokenUnstaked",
+            "parameters": {
+              "id": 1277,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1274,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1278,
+                  "src": "8800:23:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1273,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "8800:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1276,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "incentiveId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1278,
+                  "src": "8825:27:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 1275,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "8825:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "8799:54:1"
+            }
+          },
+          {
+            "id": 1285,
+            "nodeType": "EventDefinition",
+            "src": "9050:56:1",
+            "nodes": [],
+            "anonymous": false,
+            "documentation": {
+              "id": 1279,
+              "nodeType": "StructuredDocumentation",
+              "src": "8860:185:1",
+              "text": "@notice Event emitted when a reward token has been claimed\n @param to The address where claimed rewards were sent to\n @param reward The amount of reward tokens claimed"
+            },
+            "name": "RewardClaimed",
+            "parameters": {
+              "id": 1284,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1281,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "to",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1285,
+                  "src": "9070:18:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1280,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "9070:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1283,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "reward",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1285,
+                  "src": "9090:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1282,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "9090:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "9069:36:1"
+            }
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 1071,
+              "name": "IERC721Receiver",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 3600,
+              "src": "676:15:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IERC721Receiver_$3600",
+                "typeString": "contract IERC721Receiver"
+              }
+            },
+            "id": 1072,
+            "nodeType": "InheritanceSpecifier",
+            "src": "676:15:1"
+          },
+          {
+            "baseName": {
+              "id": 1073,
+              "name": "IMulticall",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 2726,
+              "src": "693:10:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IMulticall_$2726",
+                "typeString": "contract IMulticall"
+              }
+            },
+            "id": 1074,
+            "nodeType": "InheritanceSpecifier",
+            "src": "693:10:1"
+          }
+        ],
+        "contractDependencies": [
+          2726,
+          3600
+        ],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 1070,
+          "nodeType": "StructuredDocumentation",
+          "src": "521:125:1",
+          "text": "@title Uniswap V3 Staker Interface\n @notice Allows staking nonfungible liquidity tokens in exchange for reward tokens"
+        },
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          1286,
+          2726,
+          3600
+        ],
+        "name": "IUniswapV3Staker",
+        "scope": 1287
+      }
+    ],
+    "license": "GPL-2.0-or-later"
+  },
+  "id": 1
+}

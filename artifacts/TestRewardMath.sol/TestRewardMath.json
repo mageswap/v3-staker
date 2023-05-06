@@ -1,0 +1,1077 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "totalRewardUnclaimed",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint160",
+          "name": "totalSecondsClaimedX128",
+          "type": "uint160"
+        },
+        {
+          "internalType": "uint256",
+          "name": "startTime",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "endTime",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint128",
+          "name": "liquidity",
+          "type": "uint128"
+        },
+        {
+          "internalType": "uint160",
+          "name": "secondsPerLiquidityInsideInitialX128",
+          "type": "uint160"
+        },
+        {
+          "internalType": "uint160",
+          "name": "secondsPerLiquidityInsideX128",
+          "type": "uint160"
+        },
+        {
+          "internalType": "uint256",
+          "name": "currentTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "computeRewardAmount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "reward",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint160",
+          "name": "secondsInsideX128",
+          "type": "uint160"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x608060405234801561001057600080fd5b50610295806100206000396000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c8063f20b9d1a14610030575b600080fd5b61004361003e3660046101c1565b61005a565b604051610051929190610248565b60405180910390f35b60008061006d8a8a8a8a8a8a8a8a61007e565b909b909a5098505050505050505050565b6000808783101561008b57fe5b508383036001600160801b0386160260006001600160a01b038a1660808a6100b38b886100dd565b03901b0390506100cd8b836001600160a01b0316836100f6565b9250509850989650505050505050565b6000818310156100ed57816100ef565b825b9392505050565b600080806000198587098686029250828110908390030390508061012c576000841161012157600080fd5b5082900490506100ef565b80841161013857600080fd5b6000848688096000868103871696879004966002600389028118808a02820302808a02820302808a02820302808a02820302808a02820302808a02909103029181900381900460010186841190950394909402919094039290920491909117919091029150509392505050565b80356001600160a01b03811681146101bc57600080fd5b919050565b600080600080600080600080610100898b0312156101dd578384fd5b883597506101ed60208a016101a5565b9650604089013595506060890135945060808901356001600160801b0381168114610216578485fd5b935061022460a08a016101a5565b925061023260c08a016101a5565b915060e089013590509295985092959890939650565b9182526001600160a01b031660208201526040019056fea2646970667358221220807160b6ed6f2374fb674951237b8e156b9db543d543c467f7e4d288ad439e5864736f6c63430007060033",
+    "sourceMap": "214:762:8:-:0;;;;;;;;;;;;;;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x608060405234801561001057600080fd5b506004361061002b5760003560e01c8063f20b9d1a14610030575b600080fd5b61004361003e3660046101c1565b61005a565b604051610051929190610248565b60405180910390f35b60008061006d8a8a8a8a8a8a8a8a61007e565b909b909a5098505050505050505050565b6000808783101561008b57fe5b508383036001600160801b0386160260006001600160a01b038a1660808a6100b38b886100dd565b03901b0390506100cd8b836001600160a01b0316836100f6565b9250509850989650505050505050565b6000818310156100ed57816100ef565b825b9392505050565b600080806000198587098686029250828110908390030390508061012c576000841161012157600080fd5b5082900490506100ef565b80841161013857600080fd5b6000848688096000868103871696879004966002600389028118808a02820302808a02820302808a02820302808a02820302808a02820302808a02909103029181900381900460010186841190950394909402919094039290920491909117919091029150509392505050565b80356001600160a01b03811681146101bc57600080fd5b919050565b600080600080600080600080610100898b0312156101dd578384fd5b883597506101ed60208a016101a5565b9650604089013595506060890135945060808901356001600160801b0381168114610216578485fd5b935061022460a08a016101a5565b925061023260c08a016101a5565b915060e089013590509295985092959890939650565b9182526001600160a01b031660208201526040019056fea2646970667358221220807160b6ed6f2374fb674951237b8e156b9db543d543c467f7e4d288ad439e5864736f6c63430007060033",
+    "sourceMap": "214:762:8:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;244:730;;;;;;:::i;:::-;;:::i;:::-;;;;;;;;:::i;:::-;;;;;;;;;588:14;604:25;671:296;715:20;749:23;786:9;809:7;830:9;853:36;903:29;946:11;671:30;:296::i;:::-;641:326;;;;-1:-1:-1;244:730:8;-1:-1:-1;;;;;;;;;244:730:8:o;1473:947:4:-;1819:14;1835:25;1955:9;1940:11;:24;;1933:32;;;;-1:-1:-1;2091:68:4;;;-1:-1:-1;;;;;2090:82:4;;;2183:33;-1:-1:-1;;;;;2231:79:4;;2280:3;2266:9;2233:30;2242:7;2251:11;2233:8;:30::i;:::-;:42;2232:51;;2231:79;2183:127;;2330:83;2346:20;2368:17;-1:-1:-1;;;;;2330:83:4;2387:25;2330:15;:83::i;:::-;2321:92;;1473:947;;;;;;;;;;;;:::o;215:105:29:-;273:7;304:1;299;:6;;:14;;312:1;299:14;;;308:1;299:14;292:21;215:105;-1:-1:-1;;;215:105:29:o;749:3776:18:-;861:14;;;-1:-1:-1;;1368:1:18;1365;1358:20;1400:9;;;;-1:-1:-1;1451:13:18;;;1435:14;;;;1431:34;;-1:-1:-1;1547:10:18;1543:179;;1595:1;1581:11;:15;1573:24;;;;;;-1:-1:-1;1648:23:18;;;;-1:-1:-1;1698:13:18;;1543:179;1849:5;1835:11;:19;1827:28;;;;;;2132:17;2208:11;2205:1;2202;2195:25;2560:12;2575;;;:26;;2695:22;;;;;3498:1;3479;:15;;3478:21;;3725:17;;;3721:21;;3714:28;3783:17;;;3779:21;;3772:28;3842:17;;;3838:21;;3831:28;3901:17;;;3897:21;;3890:28;3960:17;;;3956:21;;3949:28;4020:17;;;4016:21;;;4009:28;3067:12;;;;3063:23;;;3088:1;3059:31;2337:20;;;2326:32;;;3118:12;;;;2380:21;;;;2823:16;;;;3109:21;;;;4484:11;;;;;-1:-1:-1;;749:3776:18;;;;;:::o;14:175:36:-;84:20;;-1:-1:-1;;;;;133:31:36;;123:42;;113:2;;179:1;176;169:12;113:2;65:124;;;:::o;194:826::-;;;;;;;;;425:3;413:9;404:7;400:23;396:33;393:2;;;447:6;439;432:22;393:2;488:9;475:23;465:33;;517:40;553:2;542:9;538:18;517:40;:::i;:::-;507:50;;604:2;593:9;589:18;576:32;566:42;;655:2;644:9;640:18;627:32;617:42;;709:3;698:9;694:19;681:33;-1:-1:-1;;;;;747:5:36;743:46;736:5;733:57;723:2;;809:6;801;794:22;723:2;837:5;-1:-1:-1;861:41:36;897:3;882:19;;861:41;:::i;:::-;851:51;;921:41;957:3;946:9;942:19;921:41;:::i;:::-;911:51;;1009:3;998:9;994:19;981:33;971:43;;383:637;;;;;;;;;;;:::o;1025:274::-;1199:25;;;-1:-1:-1;;;;;1260:32:36;1255:2;1240:18;;1233:60;1187:2;1172:18;;1154:145::o",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "computeRewardAmount(uint256,uint160,uint256,uint256,uint128,uint160,uint160,uint256)": "f20b9d1a"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"totalRewardUnclaimed\",\"type\":\"uint256\"},{\"internalType\":\"uint160\",\"name\":\"totalSecondsClaimedX128\",\"type\":\"uint160\"},{\"internalType\":\"uint256\",\"name\":\"startTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"endTime\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"liquidity\",\"type\":\"uint128\"},{\"internalType\":\"uint160\",\"name\":\"secondsPerLiquidityInsideInitialX128\",\"type\":\"uint160\"},{\"internalType\":\"uint160\",\"name\":\"secondsPerLiquidityInsideX128\",\"type\":\"uint160\"},{\"internalType\":\"uint256\",\"name\":\"currentTime\",\"type\":\"uint256\"}],\"name\":\"computeRewardAmount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"reward\",\"type\":\"uint256\"},{\"internalType\":\"uint160\",\"name\":\"secondsInsideX128\",\"type\":\"uint160\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Test contract for RewardMatrh\",\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/test/TestRewardMath.sol\":\"TestRewardMath\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@ensdomains/=node_modules/@ensdomains/\",\":@mageswap/=node_modules/@mageswap/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":base64-sol/=node_modules/base64-sol/\",\":hardhat/=node_modules/hardhat/\"]},\"sources\":{\"contracts/interfaces/IUniswapV3Staker.sol\":{\"keccak256\":\"0x752dba376c111db88e5d35c1316b5da50d13d7975db9b4c1768a77e036d0d4e3\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://b14a761b42eeeb85c7a19d4bcd20b878a531e6c9164972cb5805a79c2a18003b\",\"dweb:/ipfs/QmRar17LgwuTdChvgQrPSunQsYH2uNYD2UURF8Q2iimDLV\"]},\"contracts/libraries/RewardMath.sol\":{\"keccak256\":\"0xddab14cdb36c0e16ab33f3d0b547b5fe62b3ef3f83f7c51d3a1047b6173179d1\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://73a1e91c4d3cd83b05f3398eb7a7b4d53ce7988b14dcadddfbe517f00918787b\",\"dweb:/ipfs/QmQ4WzrmqRsNRw88KF9MhYmyvFa1G9s3yb6cLtjCfbxcWL\"]},\"contracts/test/TestRewardMath.sol\":{\"keccak256\":\"0xd4fa8f19d5a52f8cae135b2a89d1f7d6f12a5d8caaf9214d2f3e4de4e62b2d59\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://ad047cf869e89f536e141e3398fc979e98f2670bdf999ee9890a948c1bb5d97e\",\"dweb:/ipfs/QmX93jHMaHHAFBLyFKx15itRFvxkBkDsxwmKwu6M4HkEqn\"]},\"node_modules/@mageswap/v3-core/contracts/interfaces/IERC20Minimal.sol\":{\"keccak256\":\"0xbbb4fbd3cf2221bba3218d27871f61f2852ff296cbe81946b935481ff181f735\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://8ded0534518213ad286cbd3b7a120ec2070da0451f6d02e0bae6706b35f65fa3\",\"dweb:/ipfs/QmcUVLd6GuJJ1Aw895kHprUQpwZwbo2SqPoSif3BciMfNF\"]},\"node_modules/@mageswap/v3-core/contracts/interfaces/IUniswapV3Factory.sol\":{\"keccak256\":\"0xcc3d0c93fc9ac0febbe09f941b465b57f750bcf3b48432da0b97dc289cfdc489\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://b9379ad954680c44a0bc523b314ae4c4da735f9fe1d02aa56ea5bdba6f1136f2\",\"dweb:/ipfs/QmZXdgQNXKAckrXWz9R3mc47F1fvDvr28a2ewJrwNAw71B\"]},\"node_modules/@mageswap/v3-core/contracts/interfaces/IUniswapV3Pool.sol\":{\"keccak256\":\"0xfe6113d518466cd6652c85b111e01f33eb62157f49ae5ed7d5a3947a2044adb1\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://1c42b9e6f5902ac38dd43e25750939baa7e0c1425dc75afd717c4412731065d5\",\"dweb:/ipfs/QmWaoacnzsucTvBME2o7YgZBZMhaHv7fkj83htHMVWJKWh\"]},\"node_modules/@mageswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolActions.sol\":{\"keccak256\":\"0x9453dd0e7442188667d01d9b65de3f1e14e9511ff3e303179a15f6fc267f7634\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://982f4328f956c3e60e67501e759eb292ac487f76460c774c50e9ae4fcc92aae5\",\"dweb:/ipfs/QmRnzEDsaqtd9PJEVcgQi7p5aV5pMSvRUoGZJAdwFUJxgZ\"]},\"node_modules/@mageswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolDerivedState.sol\":{\"keccak256\":\"0xe603ac5b17ecdee73ba2b27efdf386c257a19c14206e87eee77e2017b742d9e5\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://8febc9bdb399a4d94bb89f5377732652e2400e4a8dee808201ade6848f9004e7\",\"dweb:/ipfs/QmaKDqYYFU4d2W2iN77aDHptfbFmYZRrMYXHeGpJmM8C1c\"]},\"node_modules/@mageswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolEvents.sol\":{\"keccak256\":\"0x8071514d0fe5d17d6fbd31c191cdfb703031c24e0ece3621d88ab10e871375cd\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://d0b571930cc7488b1d546a7e9cea7c52d8b3c4e207da657ed0e0db7343b8cd03\",\"dweb:/ipfs/QmaGK6vVwB95QSTR1XMYvrh7ivYAYZxi3fD7v6VMA4jZ39\"]},\"node_modules/@mageswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolImmutables.sol\":{\"keccak256\":\"0xf6e5d2cd1139c4c276bdbc8e1d2b256e456c866a91f1b868da265c6d2685c3f7\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://b99c8c9ae8e27ee6559e5866bea82cbc9ffc8247f8d15b7422a4deb287d4d047\",\"dweb:/ipfs/QmfL8gaqt3ffAnm6nVj5ksuNpLygXuL3xq5VBqrkwC2JJ3\"]},\"node_modules/@mageswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolOwnerActions.sol\":{\"keccak256\":\"0x759b78a2918af9e99e246dc3af084f654e48ef32bb4e4cb8a966aa3dcaece235\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://64144fb96e1c7fdba87305acadb98a198d26a3d46c097cb3a666e567f6f29735\",\"dweb:/ipfs/QmUnWVwN9FKB9uV5Pr8YfLpWZnYM2DENnRMaadZ492JS9u\"]},\"node_modules/@mageswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolState.sol\":{\"keccak256\":\"0x852dc1f5df7dcf7f11e7bb3eed79f0cea72ad4b25f6a9d2c35aafb48925fd49f\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://ed63907c38ff36b0e22bc9ffc53e791ea74f0d4f0e7c257fdfb5aaf8825b1f0f\",\"dweb:/ipfs/QmSQrckghEjs6HVsA5GVgpNpZWvTXMY5eQLF7cN6deFeEg\"]},\"node_modules/@mageswap/v3-core/contracts/libraries/FullMath.sol\":{\"keccak256\":\"0x50e87f7a3197525d1c6f7e04290060e848677c8a4e86c554bc6ace4a4d0d476d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3874093a6b37d8e68f9475a91f8eb0a1c808cb6153c84cfe6c37909505a4d24e\",\"dweb:/ipfs/QmUqGpQqvSHX4SwUvcBCs9g4ZhR9JPhgD3615oUigAhtjj\"]},\"node_modules/@mageswap/v3-periphery/contracts/interfaces/IERC721Permit.sol\":{\"keccak256\":\"0x9e3c2a4ee65ddf95b2dfcb0815784eea3a295707e6f8b83e4c4f0f8fe2e3a1d4\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://bfd939085b3618101b955f87c7fabf38338ba1aad480295acb8102ebc5d72471\",\"dweb:/ipfs/QmauQD8bGDHTztmTDfaKXjzM7Wacrq2XU7VcTbwn1WrDBL\"]},\"node_modules/@mageswap/v3-periphery/contracts/interfaces/IMulticall.sol\":{\"keccak256\":\"0xa8f9d0061ee730a522dc4bae6bd5cabb3e997e2c5983da183e912bdca93dfa7b\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://496b68d4f72d58cc83cf51bd9cc9c99aaa46dc3c3df7c951a9e50ba29ee33016\",\"dweb:/ipfs/Qmc3bkXwuRP8mDpcKgvLgbCKn8tD8PGCaBjnLHSPMJCRGD\"]},\"node_modules/@mageswap/v3-periphery/contracts/interfaces/INonfungiblePositionManager.sol\":{\"keccak256\":\"0xe1dadc73e60bf05d0b4e0f05bd2847c5783e833cc10352c14763360b13495ee1\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://6e3b10f75c101de044c1253672207399c1513fd1f0f17be31069c18c0b9a1460\",\"dweb:/ipfs/QmXrkXNY6njQfepE7KbRtJMruGXfrZwsMMsW7m5e3XS9Hf\"]},\"node_modules/@mageswap/v3-periphery/contracts/interfaces/IPeripheryImmutableState.sol\":{\"keccak256\":\"0x7affcfeb5127c0925a71d6a65345e117c33537523aeca7bc98085ead8452519d\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://e16b291294210e71cb0f20cd0afe62ae2dc6878d627f5ccc19c4dc9cd80aec3f\",\"dweb:/ipfs/QmQGitSyBr26nour81BZmpmDMyJpvZRqHQZvnCD1Acb127\"]},\"node_modules/@mageswap/v3-periphery/contracts/interfaces/IPeripheryPayments.sol\":{\"keccak256\":\"0xb547e10f1e69bed03621a62b73a503e260643066c6b4054867a4d1fef47eb274\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://f9a90f58f5fd5fb42f7811f4094113b532f307b14a73764c91f977590747f407\",\"dweb:/ipfs/QmSeNH2mfiDMKf3Q6V2sqtNxx1s72JNuA1VVxRM9HoMqYp\"]},\"node_modules/@mageswap/v3-periphery/contracts/interfaces/IPoolInitializer.sol\":{\"keccak256\":\"0x9d7695e8d94c22cc5fcced602017aabb988de89981ea7bee29ea629d5328a862\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://61b50933026ee1017db2a6273af8cedc3238c95dca58880db0918dbdbb2f064f\",\"dweb:/ipfs/QmUebR26pqG25d18aBELKz8aFFKkmHa8PxntzXTA7o9Ldu\"]},\"node_modules/@mageswap/v3-periphery/contracts/libraries/PoolAddress.sol\":{\"keccak256\":\"0x5edd84eb8ba7c12fd8cb6cffe52e1e9f3f6464514ee5f539c2283826209035a2\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://f375d0e6d5ea3674e1aa6f112b021e9a86721a6a2f3cb22d673378b30cf0e840\",\"dweb:/ipfs/QmWJir2qnJyp963mU6U3jEEx9i3H3V5BgKawAfSnG1pC8w\"]},\"node_modules/@openzeppelin/contracts/introspection/IERC165.sol\":{\"keccak256\":\"0xd2f30fad5b24c4120f96dbac83aacdb7993ee610a9092bc23c44463da292bf8d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://e3d4e72409e392c7694b6405a0136cf073d8da016df33ef8f9ad195f724ebfea\",\"dweb:/ipfs/QmPGcddKq6CgsiKnxUUif2q76wRqP3dmdQ6bKuHCLmb8Wa\"]},\"node_modules/@openzeppelin/contracts/math/Math.sol\":{\"keccak256\":\"0xa4fdec0ea7d943692cac780111ff2ff9d89848cad0494a59cfaed63a705054b4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://33ce43e57ca89276dc54f022f92ebf1b57bb50c8a5ec18415ce3ae3513f8bbf1\",\"dweb:/ipfs/QmcMEoXaS9dCa9EYN4y4zvq75Pmehy7DA6Q4VLiPaPCc9e\"]},\"node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol\":{\"keccak256\":\"0xb11597841d47f7a773bca63ca323c76f804cb5d944788de0327db5526319dc82\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://930d2da1934886a1098753be4173dd89c45ca0b306a1930accd37e00b1af4aaf\",\"dweb:/ipfs/QmVSXnvEV41d43k8cfpANHoTYMKgBDBL8iCbxkLfEtQZBe\"]},\"node_modules/@openzeppelin/contracts/token/ERC721/IERC721Enumerable.sol\":{\"keccak256\":\"0x2789dfea2d73182683d637db5729201f6730dae6113030a94c828f8688f38f2f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://36374eaa68c0737bf7e1ae13d55327b4868fb0825e971ee729f4b8d355ededb4\",\"dweb:/ipfs/QmYN9yuzz4P5SumiT6rgYgTEY8MhnPQapMwx2LHxRKju7r\"]},\"node_modules/@openzeppelin/contracts/token/ERC721/IERC721Metadata.sol\":{\"keccak256\":\"0xc82c7d1d732081d9bd23f1555ebdf8f3bc1738bc42c2bfc4b9aa7564d9fa3573\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5cb07e4ff3352161510a0d1536fe93f3c62526358e073a8bab2a8abbb27d0da1\",\"dweb:/ipfs/QmX7K1JjnWKT1JzZT92Qx5zNJQYbssE533TLFHP88hj2fb\"]},\"node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol\":{\"keccak256\":\"0x05604ffcf69e416b8a42728bb0e4fd75170d8fac70bf1a284afeb4752a9bc52f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a8a7fd1043372336ecccdbcbcf4962c6df8958dc9c7c7f8361fc2b3dd23570cc\",\"dweb:/ipfs/QmYHKgZxnanBfu7Q8ZicVhDDuB7XRGxuwvmCjfQQ1E5j39\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.7.6+commit.7338295f"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "totalRewardUnclaimed",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint160",
+              "name": "totalSecondsClaimedX128",
+              "type": "uint160"
+            },
+            {
+              "internalType": "uint256",
+              "name": "startTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "endTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint128",
+              "name": "liquidity",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint160",
+              "name": "secondsPerLiquidityInsideInitialX128",
+              "type": "uint160"
+            },
+            {
+              "internalType": "uint160",
+              "name": "secondsPerLiquidityInsideX128",
+              "type": "uint160"
+            },
+            {
+              "internalType": "uint256",
+              "name": "currentTime",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "pure",
+          "type": "function",
+          "name": "computeRewardAmount",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "reward",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint160",
+              "name": "secondsInsideX128",
+              "type": "uint160"
+            }
+          ]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {},
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {},
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@ensdomains/=node_modules/@ensdomains/",
+        ":@mageswap/=node_modules/@mageswap/",
+        ":@openzeppelin/=node_modules/@openzeppelin/",
+        ":base64-sol/=node_modules/base64-sol/",
+        ":hardhat/=node_modules/hardhat/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "contracts/test/TestRewardMath.sol": "TestRewardMath"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "contracts/interfaces/IUniswapV3Staker.sol": {
+        "keccak256": "0x752dba376c111db88e5d35c1316b5da50d13d7975db9b4c1768a77e036d0d4e3",
+        "urls": [
+          "bzz-raw://b14a761b42eeeb85c7a19d4bcd20b878a531e6c9164972cb5805a79c2a18003b",
+          "dweb:/ipfs/QmRar17LgwuTdChvgQrPSunQsYH2uNYD2UURF8Q2iimDLV"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "contracts/libraries/RewardMath.sol": {
+        "keccak256": "0xddab14cdb36c0e16ab33f3d0b547b5fe62b3ef3f83f7c51d3a1047b6173179d1",
+        "urls": [
+          "bzz-raw://73a1e91c4d3cd83b05f3398eb7a7b4d53ce7988b14dcadddfbe517f00918787b",
+          "dweb:/ipfs/QmQ4WzrmqRsNRw88KF9MhYmyvFa1G9s3yb6cLtjCfbxcWL"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "contracts/test/TestRewardMath.sol": {
+        "keccak256": "0xd4fa8f19d5a52f8cae135b2a89d1f7d6f12a5d8caaf9214d2f3e4de4e62b2d59",
+        "urls": [
+          "bzz-raw://ad047cf869e89f536e141e3398fc979e98f2670bdf999ee9890a948c1bb5d97e",
+          "dweb:/ipfs/QmX93jHMaHHAFBLyFKx15itRFvxkBkDsxwmKwu6M4HkEqn"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-core/contracts/interfaces/IERC20Minimal.sol": {
+        "keccak256": "0xbbb4fbd3cf2221bba3218d27871f61f2852ff296cbe81946b935481ff181f735",
+        "urls": [
+          "bzz-raw://8ded0534518213ad286cbd3b7a120ec2070da0451f6d02e0bae6706b35f65fa3",
+          "dweb:/ipfs/QmcUVLd6GuJJ1Aw895kHprUQpwZwbo2SqPoSif3BciMfNF"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-core/contracts/interfaces/IUniswapV3Factory.sol": {
+        "keccak256": "0xcc3d0c93fc9ac0febbe09f941b465b57f750bcf3b48432da0b97dc289cfdc489",
+        "urls": [
+          "bzz-raw://b9379ad954680c44a0bc523b314ae4c4da735f9fe1d02aa56ea5bdba6f1136f2",
+          "dweb:/ipfs/QmZXdgQNXKAckrXWz9R3mc47F1fvDvr28a2ewJrwNAw71B"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-core/contracts/interfaces/IUniswapV3Pool.sol": {
+        "keccak256": "0xfe6113d518466cd6652c85b111e01f33eb62157f49ae5ed7d5a3947a2044adb1",
+        "urls": [
+          "bzz-raw://1c42b9e6f5902ac38dd43e25750939baa7e0c1425dc75afd717c4412731065d5",
+          "dweb:/ipfs/QmWaoacnzsucTvBME2o7YgZBZMhaHv7fkj83htHMVWJKWh"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolActions.sol": {
+        "keccak256": "0x9453dd0e7442188667d01d9b65de3f1e14e9511ff3e303179a15f6fc267f7634",
+        "urls": [
+          "bzz-raw://982f4328f956c3e60e67501e759eb292ac487f76460c774c50e9ae4fcc92aae5",
+          "dweb:/ipfs/QmRnzEDsaqtd9PJEVcgQi7p5aV5pMSvRUoGZJAdwFUJxgZ"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolDerivedState.sol": {
+        "keccak256": "0xe603ac5b17ecdee73ba2b27efdf386c257a19c14206e87eee77e2017b742d9e5",
+        "urls": [
+          "bzz-raw://8febc9bdb399a4d94bb89f5377732652e2400e4a8dee808201ade6848f9004e7",
+          "dweb:/ipfs/QmaKDqYYFU4d2W2iN77aDHptfbFmYZRrMYXHeGpJmM8C1c"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolEvents.sol": {
+        "keccak256": "0x8071514d0fe5d17d6fbd31c191cdfb703031c24e0ece3621d88ab10e871375cd",
+        "urls": [
+          "bzz-raw://d0b571930cc7488b1d546a7e9cea7c52d8b3c4e207da657ed0e0db7343b8cd03",
+          "dweb:/ipfs/QmaGK6vVwB95QSTR1XMYvrh7ivYAYZxi3fD7v6VMA4jZ39"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolImmutables.sol": {
+        "keccak256": "0xf6e5d2cd1139c4c276bdbc8e1d2b256e456c866a91f1b868da265c6d2685c3f7",
+        "urls": [
+          "bzz-raw://b99c8c9ae8e27ee6559e5866bea82cbc9ffc8247f8d15b7422a4deb287d4d047",
+          "dweb:/ipfs/QmfL8gaqt3ffAnm6nVj5ksuNpLygXuL3xq5VBqrkwC2JJ3"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolOwnerActions.sol": {
+        "keccak256": "0x759b78a2918af9e99e246dc3af084f654e48ef32bb4e4cb8a966aa3dcaece235",
+        "urls": [
+          "bzz-raw://64144fb96e1c7fdba87305acadb98a198d26a3d46c097cb3a666e567f6f29735",
+          "dweb:/ipfs/QmUnWVwN9FKB9uV5Pr8YfLpWZnYM2DENnRMaadZ492JS9u"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolState.sol": {
+        "keccak256": "0x852dc1f5df7dcf7f11e7bb3eed79f0cea72ad4b25f6a9d2c35aafb48925fd49f",
+        "urls": [
+          "bzz-raw://ed63907c38ff36b0e22bc9ffc53e791ea74f0d4f0e7c257fdfb5aaf8825b1f0f",
+          "dweb:/ipfs/QmSQrckghEjs6HVsA5GVgpNpZWvTXMY5eQLF7cN6deFeEg"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-core/contracts/libraries/FullMath.sol": {
+        "keccak256": "0x50e87f7a3197525d1c6f7e04290060e848677c8a4e86c554bc6ace4a4d0d476d",
+        "urls": [
+          "bzz-raw://3874093a6b37d8e68f9475a91f8eb0a1c808cb6153c84cfe6c37909505a4d24e",
+          "dweb:/ipfs/QmUqGpQqvSHX4SwUvcBCs9g4ZhR9JPhgD3615oUigAhtjj"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@mageswap/v3-periphery/contracts/interfaces/IERC721Permit.sol": {
+        "keccak256": "0x9e3c2a4ee65ddf95b2dfcb0815784eea3a295707e6f8b83e4c4f0f8fe2e3a1d4",
+        "urls": [
+          "bzz-raw://bfd939085b3618101b955f87c7fabf38338ba1aad480295acb8102ebc5d72471",
+          "dweb:/ipfs/QmauQD8bGDHTztmTDfaKXjzM7Wacrq2XU7VcTbwn1WrDBL"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-periphery/contracts/interfaces/IMulticall.sol": {
+        "keccak256": "0xa8f9d0061ee730a522dc4bae6bd5cabb3e997e2c5983da183e912bdca93dfa7b",
+        "urls": [
+          "bzz-raw://496b68d4f72d58cc83cf51bd9cc9c99aaa46dc3c3df7c951a9e50ba29ee33016",
+          "dweb:/ipfs/Qmc3bkXwuRP8mDpcKgvLgbCKn8tD8PGCaBjnLHSPMJCRGD"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-periphery/contracts/interfaces/INonfungiblePositionManager.sol": {
+        "keccak256": "0xe1dadc73e60bf05d0b4e0f05bd2847c5783e833cc10352c14763360b13495ee1",
+        "urls": [
+          "bzz-raw://6e3b10f75c101de044c1253672207399c1513fd1f0f17be31069c18c0b9a1460",
+          "dweb:/ipfs/QmXrkXNY6njQfepE7KbRtJMruGXfrZwsMMsW7m5e3XS9Hf"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-periphery/contracts/interfaces/IPeripheryImmutableState.sol": {
+        "keccak256": "0x7affcfeb5127c0925a71d6a65345e117c33537523aeca7bc98085ead8452519d",
+        "urls": [
+          "bzz-raw://e16b291294210e71cb0f20cd0afe62ae2dc6878d627f5ccc19c4dc9cd80aec3f",
+          "dweb:/ipfs/QmQGitSyBr26nour81BZmpmDMyJpvZRqHQZvnCD1Acb127"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-periphery/contracts/interfaces/IPeripheryPayments.sol": {
+        "keccak256": "0xb547e10f1e69bed03621a62b73a503e260643066c6b4054867a4d1fef47eb274",
+        "urls": [
+          "bzz-raw://f9a90f58f5fd5fb42f7811f4094113b532f307b14a73764c91f977590747f407",
+          "dweb:/ipfs/QmSeNH2mfiDMKf3Q6V2sqtNxx1s72JNuA1VVxRM9HoMqYp"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-periphery/contracts/interfaces/IPoolInitializer.sol": {
+        "keccak256": "0x9d7695e8d94c22cc5fcced602017aabb988de89981ea7bee29ea629d5328a862",
+        "urls": [
+          "bzz-raw://61b50933026ee1017db2a6273af8cedc3238c95dca58880db0918dbdbb2f064f",
+          "dweb:/ipfs/QmUebR26pqG25d18aBELKz8aFFKkmHa8PxntzXTA7o9Ldu"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@mageswap/v3-periphery/contracts/libraries/PoolAddress.sol": {
+        "keccak256": "0x5edd84eb8ba7c12fd8cb6cffe52e1e9f3f6464514ee5f539c2283826209035a2",
+        "urls": [
+          "bzz-raw://f375d0e6d5ea3674e1aa6f112b021e9a86721a6a2f3cb22d673378b30cf0e840",
+          "dweb:/ipfs/QmWJir2qnJyp963mU6U3jEEx9i3H3V5BgKawAfSnG1pC8w"
+        ],
+        "license": "GPL-2.0-or-later"
+      },
+      "node_modules/@openzeppelin/contracts/introspection/IERC165.sol": {
+        "keccak256": "0xd2f30fad5b24c4120f96dbac83aacdb7993ee610a9092bc23c44463da292bf8d",
+        "urls": [
+          "bzz-raw://e3d4e72409e392c7694b6405a0136cf073d8da016df33ef8f9ad195f724ebfea",
+          "dweb:/ipfs/QmPGcddKq6CgsiKnxUUif2q76wRqP3dmdQ6bKuHCLmb8Wa"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/math/Math.sol": {
+        "keccak256": "0xa4fdec0ea7d943692cac780111ff2ff9d89848cad0494a59cfaed63a705054b4",
+        "urls": [
+          "bzz-raw://33ce43e57ca89276dc54f022f92ebf1b57bb50c8a5ec18415ce3ae3513f8bbf1",
+          "dweb:/ipfs/QmcMEoXaS9dCa9EYN4y4zvq75Pmehy7DA6Q4VLiPaPCc9e"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": {
+        "keccak256": "0xb11597841d47f7a773bca63ca323c76f804cb5d944788de0327db5526319dc82",
+        "urls": [
+          "bzz-raw://930d2da1934886a1098753be4173dd89c45ca0b306a1930accd37e00b1af4aaf",
+          "dweb:/ipfs/QmVSXnvEV41d43k8cfpANHoTYMKgBDBL8iCbxkLfEtQZBe"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/token/ERC721/IERC721Enumerable.sol": {
+        "keccak256": "0x2789dfea2d73182683d637db5729201f6730dae6113030a94c828f8688f38f2f",
+        "urls": [
+          "bzz-raw://36374eaa68c0737bf7e1ae13d55327b4868fb0825e971ee729f4b8d355ededb4",
+          "dweb:/ipfs/QmYN9yuzz4P5SumiT6rgYgTEY8MhnPQapMwx2LHxRKju7r"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/token/ERC721/IERC721Metadata.sol": {
+        "keccak256": "0xc82c7d1d732081d9bd23f1555ebdf8f3bc1738bc42c2bfc4b9aa7564d9fa3573",
+        "urls": [
+          "bzz-raw://5cb07e4ff3352161510a0d1536fe93f3c62526358e073a8bab2a8abbb27d0da1",
+          "dweb:/ipfs/QmX7K1JjnWKT1JzZT92Qx5zNJQYbssE533TLFHP88hj2fb"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
+        "keccak256": "0x05604ffcf69e416b8a42728bb0e4fd75170d8fac70bf1a284afeb4752a9bc52f",
+        "urls": [
+          "bzz-raw://a8a7fd1043372336ecccdbcbcf4962c6df8958dc9c7c7f8361fc2b3dd23570cc",
+          "dweb:/ipfs/QmYHKgZxnanBfu7Q8ZicVhDDuB7XRGxuwvmCjfQQ1E5j39"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "contracts/test/TestRewardMath.sol",
+    "id": 1822,
+    "exportedSymbols": {
+      "FullMath": [
+        2591
+      ],
+      "IERC165": [
+        3257
+      ],
+      "IERC20Minimal": [
+        1893
+      ],
+      "IERC721": [
+        3524
+      ],
+      "IERC721Enumerable": [
+        3555
+      ],
+      "IERC721Metadata": [
+        3582
+      ],
+      "IERC721Permit": [
+        2711
+      ],
+      "IERC721Receiver": [
+        3600
+      ],
+      "IMulticall": [
+        2726
+      ],
+      "INonfungiblePositionManager": [
+        2921
+      ],
+      "IPeripheryImmutableState": [
+        2937
+      ],
+      "IPeripheryPayments": [
+        2963
+      ],
+      "IPoolInitializer": [
+        2982
+      ],
+      "IUniswapV3Factory": [
+        1976
+      ],
+      "IUniswapV3Pool": [
+        1998
+      ],
+      "IUniswapV3PoolActions": [
+        2094
+      ],
+      "IUniswapV3PoolDerivedState": [
+        2125
+      ],
+      "IUniswapV3PoolEvents": [
+        2244
+      ],
+      "IUniswapV3PoolImmutables": [
+        2284
+      ],
+      "IUniswapV3PoolOwnerActions": [
+        2310
+      ],
+      "IUniswapV3PoolState": [
+        2418
+      ],
+      "IUniswapV3Staker": [
+        1286
+      ],
+      "Math": [
+        3330
+      ],
+      "PoolAddress": [
+        3074
+      ],
+      "RewardMath": [
+        1445
+      ],
+      "TestRewardMath": [
+        1821
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "45:932:8",
+    "nodes": [
+      {
+        "id": 1776,
+        "nodeType": "PragmaDirective",
+        "src": "45:23:8",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "=",
+          "0.7",
+          ".6"
+        ]
+      },
+      {
+        "id": 1777,
+        "nodeType": "PragmaDirective",
+        "src": "69:19:8",
+        "nodes": [],
+        "literals": [
+          "abicoder",
+          "v2"
+        ]
+      },
+      {
+        "id": 1778,
+        "nodeType": "ImportDirective",
+        "src": "90:44:8",
+        "nodes": [],
+        "absolutePath": "contracts/interfaces/IUniswapV3Staker.sol",
+        "file": "../interfaces/IUniswapV3Staker.sol",
+        "scope": 1822,
+        "sourceUnit": 1287,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 1779,
+        "nodeType": "ImportDirective",
+        "src": "136:37:8",
+        "nodes": [],
+        "absolutePath": "contracts/libraries/RewardMath.sol",
+        "file": "../libraries/RewardMath.sol",
+        "scope": 1822,
+        "sourceUnit": 1446,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 1821,
+        "nodeType": "ContractDefinition",
+        "src": "214:762:8",
+        "nodes": [
+          {
+            "id": 1820,
+            "nodeType": "FunctionDefinition",
+            "src": "244:730:8",
+            "nodes": [],
+            "body": {
+              "id": 1819,
+              "nodeType": "Block",
+              "src": "631:343:8",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "id": 1817,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "components": [
+                        {
+                          "id": 1803,
+                          "name": "reward",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1799,
+                          "src": "642:6:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "id": 1804,
+                          "name": "secondsInsideX128",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1801,
+                          "src": "650:17:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint160",
+                            "typeString": "uint160"
+                          }
+                        }
+                      ],
+                      "id": 1805,
+                      "isConstant": false,
+                      "isInlineArray": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "TupleExpression",
+                      "src": "641:27:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_tuple$_t_uint256_$_t_uint160_$",
+                        "typeString": "tuple(uint256,uint160)"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "id": 1808,
+                          "name": "totalRewardUnclaimed",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1782,
+                          "src": "715:20:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "id": 1809,
+                          "name": "totalSecondsClaimedX128",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1784,
+                          "src": "749:23:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint160",
+                            "typeString": "uint160"
+                          }
+                        },
+                        {
+                          "id": 1810,
+                          "name": "startTime",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1786,
+                          "src": "786:9:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "id": 1811,
+                          "name": "endTime",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1788,
+                          "src": "809:7:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "id": 1812,
+                          "name": "liquidity",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1790,
+                          "src": "830:9:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint128",
+                            "typeString": "uint128"
+                          }
+                        },
+                        {
+                          "id": 1813,
+                          "name": "secondsPerLiquidityInsideInitialX128",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1792,
+                          "src": "853:36:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint160",
+                            "typeString": "uint160"
+                          }
+                        },
+                        {
+                          "id": 1814,
+                          "name": "secondsPerLiquidityInsideX128",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1794,
+                          "src": "903:29:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint160",
+                            "typeString": "uint160"
+                          }
+                        },
+                        {
+                          "id": 1815,
+                          "name": "currentTime",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1796,
+                          "src": "946:11:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint160",
+                            "typeString": "uint160"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint128",
+                            "typeString": "uint128"
+                          },
+                          {
+                            "typeIdentifier": "t_uint160",
+                            "typeString": "uint160"
+                          },
+                          {
+                            "typeIdentifier": "t_uint160",
+                            "typeString": "uint160"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        ],
+                        "expression": {
+                          "id": 1806,
+                          "name": "RewardMath",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1445,
+                          "src": "671:10:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_contract$_RewardMath_$1445_$",
+                            "typeString": "type(library RewardMath)"
+                          }
+                        },
+                        "id": 1807,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "computeRewardAmount",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 1444,
+                        "src": "671:30:8",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint160_$_t_uint256_$_t_uint256_$_t_uint128_$_t_uint160_$_t_uint160_$_t_uint256_$returns$_t_uint256_$_t_uint160_$",
+                          "typeString": "function (uint256,uint160,uint256,uint256,uint128,uint160,uint160,uint256) pure returns (uint256,uint160)"
+                        }
+                      },
+                      "id": 1816,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "671:296:8",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_tuple$_t_uint256_$_t_uint160_$",
+                        "typeString": "tuple(uint256,uint160)"
+                      }
+                    },
+                    "src": "641:326:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 1818,
+                  "nodeType": "ExpressionStatement",
+                  "src": "641:326:8"
+                }
+              ]
+            },
+            "functionSelector": "f20b9d1a",
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "computeRewardAmount",
+            "parameters": {
+              "id": 1797,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1782,
+                  "mutability": "mutable",
+                  "name": "totalRewardUnclaimed",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1820,
+                  "src": "282:28:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1781,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "282:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1784,
+                  "mutability": "mutable",
+                  "name": "totalSecondsClaimedX128",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1820,
+                  "src": "320:31:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint160",
+                    "typeString": "uint160"
+                  },
+                  "typeName": {
+                    "id": 1783,
+                    "name": "uint160",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "320:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint160",
+                      "typeString": "uint160"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1786,
+                  "mutability": "mutable",
+                  "name": "startTime",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1820,
+                  "src": "361:17:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1785,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "361:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1788,
+                  "mutability": "mutable",
+                  "name": "endTime",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1820,
+                  "src": "388:15:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1787,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "388:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1790,
+                  "mutability": "mutable",
+                  "name": "liquidity",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1820,
+                  "src": "413:17:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint128",
+                    "typeString": "uint128"
+                  },
+                  "typeName": {
+                    "id": 1789,
+                    "name": "uint128",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "413:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint128",
+                      "typeString": "uint128"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1792,
+                  "mutability": "mutable",
+                  "name": "secondsPerLiquidityInsideInitialX128",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1820,
+                  "src": "440:44:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint160",
+                    "typeString": "uint160"
+                  },
+                  "typeName": {
+                    "id": 1791,
+                    "name": "uint160",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "440:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint160",
+                      "typeString": "uint160"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1794,
+                  "mutability": "mutable",
+                  "name": "secondsPerLiquidityInsideX128",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1820,
+                  "src": "494:37:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint160",
+                    "typeString": "uint160"
+                  },
+                  "typeName": {
+                    "id": 1793,
+                    "name": "uint160",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "494:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint160",
+                      "typeString": "uint160"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1796,
+                  "mutability": "mutable",
+                  "name": "currentTime",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1820,
+                  "src": "541:19:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1795,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "541:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "272:294:8"
+            },
+            "returnParameters": {
+              "id": 1802,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1799,
+                  "mutability": "mutable",
+                  "name": "reward",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1820,
+                  "src": "588:14:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1798,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "588:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1801,
+                  "mutability": "mutable",
+                  "name": "secondsInsideX128",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1820,
+                  "src": "604:25:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint160",
+                    "typeString": "uint160"
+                  },
+                  "typeName": {
+                    "id": 1800,
+                    "name": "uint160",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "604:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint160",
+                      "typeString": "uint160"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "587:43:8"
+            },
+            "scope": 1821,
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": {
+          "id": 1780,
+          "nodeType": "StructuredDocumentation",
+          "src": "175:39:8",
+          "text": "@dev Test contract for RewardMatrh"
+        },
+        "fullyImplemented": true,
+        "linearizedBaseContracts": [
+          1821
+        ],
+        "name": "TestRewardMath",
+        "scope": 1822
+      }
+    ],
+    "license": "GPL-2.0-or-later"
+  },
+  "id": 8
+}
